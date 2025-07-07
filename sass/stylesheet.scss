@@ -1,0 +1,146 @@
+$light-bg: #fcfcfc;
+$light-fg: #333;
+$light-heading: #111;
+$dark-bg: #141414;
+$dark-fg: #ddd;
+$dark-heading: #eee;
+$link-base: #16b1bd;
+$link-hover: #37DCE8;
+$link-visited: #3784e8;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+    font-family: "Monaspace Krypton", monospace;
+}
+
+body {
+    /* Make the body a 80 character wide container */
+    width: 80ch;
+    /* Center the container within the viewport */ 
+    margin: 0 auto;
+    /* Give the lines an adequate amount of room to breathe. */
+    line-height: 1.4;
+    /* Make sure the edge of the body has a gap for mobile */
+    padding: 1em;
+}
+
+#gallery {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    column-count: 2;
+    li {
+      img {
+      }
+    }
+  }
+}
+
+img {
+    /* Make sure that the images do not overflow the body */
+    max-width: 100%;
+    /* Make sure that the images are not too tall as to be annoying */
+    max-height: 50ch;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+a, a:link {
+  text-decoration: none;
+  color: $link-base;
+}
+
+a:visited {
+  text-decoration: none;
+  color: $link-visited;
+}
+
+
+a:hover {
+  text-decoration: none;
+  color: $link-hover;
+  border-bottom: 0.01rem $link-hover solid;
+}
+
+a:hover:has(img) {
+  border: none;
+  padding: 0.02rem;
+  img {
+    border: 0.01rem $link-hover solid;
+  }
+}
+
+
+/* We want the footer to be like two columns, where the right columns are also right-aligned and the columns grow to share the space sanely. */
+
+footer nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-count: 2;
+    gap: 0.5em 0.25em;
+    li {
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+        &:nth-child(2n) {
+            text-align: right;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color: $dark-fg;
+    background: $dark-bg;
+  }
+  h1, h2, h3 {
+    color: $dark-heading;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color: $light-fg;
+    background: $light-bg;
+  }
+  h1, h2, h3 {
+    color: $light-heading;
+  }
+}
+
+html:has(#color-scheme-dark:checked) {
+  color: $dark-fg;
+  background: $dark-bg;
+  h1, h2, h3 {
+    color: $dark-heading;
+  }
+}
+
+html:has(#color-scheme-light:checked) {
+  color: $light-fg;
+  background: $light-bg;
+  h1, h2, h3 {
+    color: $light-heading;
+  }
+}

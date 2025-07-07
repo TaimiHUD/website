@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ config.extra.site_title }}</title>
+  {% include "head.html" %}
+</head>
+
+<body>
+    <div>
+        <header>
+          {% include "header.html" %}
+        </header>
+        <main>
+          {% block content %} {% endblock content %}
+        </main>
+        <footer>
+          {% include "footer.html" %}
+        </footer>
+      </div>
+</body>
+
+</html>
