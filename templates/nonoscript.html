@@ -1,0 +1,30 @@
+<!-- Component for no-noscript; Showing an item only if you have Javascript -->
+
+<!--
+  Motivation:
+    * Provide things with script tag related behaviour only if the user has Javascript
+    * If the user does not have Javascript, just don't display those elements to them
+
+  Other parts of the implementation:
+    * Components with scripted behaviour should be given the "nonoscript" class.
+
+  ```scss
+  /* A kindness to those of you who don't use Javascript */
+  .nonoscript {
+    display: none;
+  }
+  ```
+-->
+
+<script>
+  function nonoscriptImplementer() {
+    var nonoscript = document.getElementsByClassName("nonoscript");
+    console.log(nonoscript);
+    for (let item of nonoscript) {
+      console.log("meep!");
+      item.classList.remove("nonoscript");
+    }
+  }
+  window.onload = nonoscriptImplementer();
+</script>
+<!-- End of component for no-noscript -->

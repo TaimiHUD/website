@@ -1,24 +1,35 @@
 <!DOCTYPE html>
+
+{% include "love.html" %}
+
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>{{ config.extra.site_title }}</title>
-  {% include "head.html" %}
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if section is defined and section.title is defined and section.title is string %}
+        {{ section.title }} -
+        {% elif page is defined and page.title is defined and page.title is string %}
+        {{ page.title }} -
+      {% endif %}
+      {{ config.extra.site_title }}
+    </title>
+    {% include "head.html" %}
+  </head>
 
-<body>
+  <body>
     <div>
-        <header>
-          {% include "header.html" %}
-        </header>
-        <main>
-          {% block content %} {% endblock content %}
-        </main>
-        <footer>
-          {% include "footer.html" %}
-        </footer>
-      </div>
-</body>
+      <header>
+        {% include "header.html" %}
+      </header>
+      <main>
+        {% block content %} {% endblock content %}
+      </main>
+      <footer>
+        {% include "footer.html" %}
+      </footer>
+    </div>
+    {% include "nonoscript.html" %}
+  </body>
 
 </html>

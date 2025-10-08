@@ -1,8 +1,14 @@
+/*
+  Made with love by @kittywitch ^_^
+*/
+
 $light-bg: #fcfcfc;
 $light-fg: #333;
+$light-code: #eee;
 $light-heading: #111;
 $dark-bg: #141414;
 $dark-fg: #ddd;
+$dark-code: #282828;
 $dark-heading: #eee;
 $link-base: #16b1bd;
 $link-hover: #37DCE8;
@@ -13,7 +19,21 @@ $link-visited: #3784e8;
 }
 
 html {
-    font-family: "Monaspace Krypton", monospace;
+  color: $dark-fg;
+  background: $dark-bg;
+  h1, h2, h3 {
+    color: $dark-heading;
+  }
+  code {
+    background: $dark-code;
+    padding: .5pt 5pt;
+    border: $dark-fg 2px solid;
+  }
+  code:has(pre) {
+    display: block;
+    width: fit-content;
+    margin: 1em 0;
+  }
 }
 
 body {
@@ -25,6 +45,11 @@ body {
     line-height: 1.4;
     /* Make sure the edge of the body has a gap for mobile */
     padding: 1em;
+}
+
+/* A kindness to those of you who don't use Javascript */
+.nonoscript {
+  display: none;
 }
 
 #gallery {
@@ -63,6 +88,10 @@ header nav ul {
   }
 }
 
+ul.two {
+  column-count: 2;
+}
+
 a, a:link {
   text-decoration: none;
   color: $link-base;
@@ -73,6 +102,10 @@ a:visited {
   color: $link-visited;
 }
 
+.netscape-container img {
+  width: 88px;
+  height: 31px;
+}
 
 a:hover {
   text-decoration: none;
@@ -95,14 +128,11 @@ footer nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    column-count: 2;
-    gap: 0.5em 0.25em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     li {
         padding: 0;
         margin: 0;
-        flex-grow: 1;
         &:nth-child(2n) {
             text-align: right;
         }
@@ -113,9 +143,13 @@ footer nav ul {
   html {
     color: $dark-fg;
     background: $dark-bg;
-  }
-  h1, h2, h3 {
-    color: $dark-heading;
+    h1, h2, h3 {
+      color: $dark-heading;
+    }
+    code {
+      background: $dark-code;
+      border: $dark-fg 2px solid;
+    }
   }
 }
 
@@ -123,9 +157,13 @@ footer nav ul {
   html {
     color: $light-fg;
     background: $light-bg;
-  }
-  h1, h2, h3 {
-    color: $light-heading;
+    h1, h2, h3 {
+      color: $light-heading;
+    }
+    code {
+      background: $light-code;
+      border: $light-fg 2px solid;
+    }
   }
 }
 
@@ -135,6 +173,10 @@ html:has(#color-scheme-dark:checked) {
   h1, h2, h3 {
     color: $dark-heading;
   }
+  code {
+    background: $dark-code;
+    border: $dark-fg 2px solid;
+  }
 }
 
 html:has(#color-scheme-light:checked) {
@@ -142,5 +184,9 @@ html:has(#color-scheme-light:checked) {
   background: $light-bg;
   h1, h2, h3 {
     color: $light-heading;
+  }
+  code {
+    background: $light-code;
+    border: $light-fg 2px solid;
   }
 }

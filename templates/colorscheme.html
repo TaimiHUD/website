@@ -1,0 +1,74 @@
+<!-- Component for persistent user color scheme selection -->
+
+<!--
+  Motivation:
+    * Allow for auto-detection via prefers-color-scheme
+    * Allow for providing a color scheme by user preference anyway
+    * Fail (relatively) quietly without Javascript
+
+  Other parts of the implementation:
+  ```scss
+    /* Ideally, you use CSS/SCSS variables for colouring here */
+    html {
+      /* Choose one to default to; light or dark and implement it here */
+    }
+    @media (prefers-color-scheme: dark) {
+      html {
+        /* Implement dark with color, background, maybe a separate thing for headings if you feel spicy */
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      html {
+        /* Implement light with color, background, maybe a separate thing for headings if you feel spicy */
+      }
+    }
+    html:has(#color-scheme-dark:checked) {
+      /* Implement dark with color, background, maybe a separate thing for headings if you feel spicy */
+    }
+    html:has(#color-scheme-light:checked) {
+      /* Implement light with color, background, maybe a separate thing for headings if you feel spicy */
+    }
+  ```
+-->
+
+<fieldset class="nonoscript">
+  <legend>Site color scheme</legend>
+
+  <input name="color-scheme" type="radio" id="color-scheme-dark" value="dark">
+  <label for="color-scheme-dark">Dark</label>
+  <input name="color-scheme" type="radio" id="color-scheme-light" value="light">
+  <label for="color-scheme-light">Light</label>
+  <button
+    id="clear-color-scheme"
+    type="button"
+    title="Will also revert the page back to the color scheme preference as provided by the system and browser."
+  >
+    Clear preference
+  </button>
+</fieldset>
+
+<noscript>Persistence of user-selected color scheme is not possible without Javascript, however automatic detection from CSS will still work.</noscript>
+
+<script>
+  var radios = document.getElementsByName("color-scheme");
+  var prev = localStorage.getItem("color-scheme");
+  for (var i = 0; i < radios.length; i++) {
+    var _this = radios[i];
+    _this.checked = _this.value == prev;
+    radios[i].addEventListener("change", function() {
+      if (this.value !== prev) {
+        prev = this.value;
+        localStorage.setItem("color-scheme", this.value);
+      }
+    });
+  }
+  var button = document.getElementById("clear-color-scheme");
+  button.addEventListener("click", function() {
+    for (var i = 0; i < radios.length; i++) {
+      var _this = radios[i];
+      _this.checked = false;
+      localStorage.removeItem("color-scheme");
+    }
+  });
+</script>
+<!-- End of component for color scheme selection -->
