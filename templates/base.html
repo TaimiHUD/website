@@ -14,6 +14,14 @@
       {% endif %}
       {{ config.extra.site_title }}
     </title>
+    <meta property="og:title" content="
+      {% if section is defined and section.title is defined and section.title is string %}
+        {{ section.title }} -
+        {% elif page is defined and page.title is defined and page.title is string %}
+        {{ page.title }} -
+      {% endif %}
+      {{ config.extra.site_title }}
+    " />
     {% include "head.html" %}
   </head>
 
