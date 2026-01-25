@@ -27,7 +27,7 @@ If you do pay for Crossover and wish to use it, set Graphics to DXMT, Synchroniz
 
 ![Install TaimiHUD within Nexus](./01-install.png)
 
-#### For pre-releases
+#### For pre-releases, if you want them
 
 2. Hit configure for TaimiHUD within Nexus.
 
