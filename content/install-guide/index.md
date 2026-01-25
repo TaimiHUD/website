@@ -6,8 +6,6 @@ date = 2025-11-22
 
 Credit to [Seres (@Seres67)](https://github.com/Seres67/) for taking these pictures.
 
-Pathing is currently available within pre-releases. Please obtain the pre-release version of TaimiHUD should that be the feature set you desire. It will eventually be released in the main version once decently stabilized.
-
 ## Per-addon-loader specific install instructions
 
 ### Nexus
