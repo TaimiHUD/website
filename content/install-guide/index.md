@@ -6,6 +6,18 @@ date = 2025-11-22
 
 Credit to [Seres (@Seres67)](https://github.com/Seres67/) for taking these pictures.
 
+## Platform specific recommendations
+
+### Linux
+
+Using Steam or [Heroic Launcher](https://heroicgameslauncher.com/) is likely best here. Please use some kind of Wine or Proton newer than Wine 8.
+
+### MacOS
+
+Using [Heroic Launcher](https://heroicgameslauncher.com/) is recommended on macOS. Please *for the love of all that is good in this world*, do not use Whiskey. They ship Wine 7. It's rough.
+
+If you do pay for Crossover and wish to use it, set Graphics to DXMT, Synchronization to MSync and in `winecfg` set `d3d11.dll` to `native-then-builtin`. A user reports that DXVK was extremely stuttery and D3DMetal doesn't work properly with Nexus.
+
 ## Per-addon-loader specific install instructions
 
 ### Nexus
