@@ -2,6 +2,7 @@
 title = "Pathing Status"
 template = "page.html"
 date = 2026-02-06
+aliases = ["pathing/status"]
 +++
 
 ## TacO Pack Format
