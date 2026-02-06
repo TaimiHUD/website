@@ -22,45 +22,50 @@ If you do pay for Crossover and wish to use it, set Graphics to DXMT, Synchroniz
 
 ### Nexus
 
-0. Have Nexus installed.
-1. Press install for TaimiHUD within the Nexus library.
+0. Have [Nexus](https://raidcore.gg/Nexus) installed.
+1. Launch the game to find and install TaimiHUD within the Nexus Library.
 
-![Install TaimiHUD within Nexus](./01-install.png)
+    ![Install TaimiHUD within Nexus](./01-install.png)
+
+2. Install some packs from the [in-game downloads](#pathing-enablement) and explore from there!
 
 #### For pre-releases, if you want them
 
-2. Hit configure for TaimiHUD within Nexus.
+1. Hit configure for TaimiHUD within Nexus.
 
-![Configure TaimiHUD within Nexus](./02-configure.png)
+    ![Configure TaimiHUD within Nexus](./02-configure.png)
 
-3. Enable `Allow Pre-Release Updates` for TaimiHUD within the configure area.
+2. Enable `Allow Pre-Release Updates` for TaimiHUD within the configure area.
 
-![Enable pre-releases](./03-pre-releases.png)
+    ![Enable pre-releases](./03-pre-releases.png)
 
-4. Check for updates to make Nexus download the pre-release version of TaimiHUD.
+3. Check for updates to make Nexus download the pre-release version of TaimiHUD.
 
-![Check for updates](./04-check-for-updates.png)
+    ![Check for updates](./04-check-for-updates.png)
 
 ### ArcDPS
 
-0. Have ArcDPS installed.
-1. Obtain the [latest release for TaimiHUD](https://github.com/TaimiHUD/TaimiHUD/releases). If you want the pre-release (where Pathing is currently), make sure to grab that instead of the regular latest release.
-2. Install the DLL into the same folder as ArcDPS's dll (usually the equivalent of `C:\Program Files\Guild Wars 2\` for your system).
+0. Have [ArcDPS](https://www.deltaconnected.com/arcdps/) installed.
+1. Obtain the [latest release for TaimiHUD](https://github.com/TaimiHUD/TaimiHUD/releases).
+2. Place the DLL into the same folder as ArcDPS's dll \
+    (usually the equivalent of `C:\Program Files\Guild Wars 2\` for your system).
 
 ## Pathing enablement
 
-1. Enable `KatRender Pathing (Experimental)` either:
-    - if installed within Nexus, within the same Configure area that you enabled pre-releases for TaimiHUD in.
-    - if installed via ArcDPS, within either TaimiHUD's ArcDPS extensions tab or in the TaimiHUD primary window's config tab.
+1. Enable `KatRender Pathing (Experimental)` from within the TaimiHUD window's Pathing Options tab.
 
-![Enable KatRender](./05-enable-katrender.png)
+    ![Enable KatRender](./05-enable-katrender.png)
 
-2. Within the data sources tab of the TaimiHUD primary window, refresh the data sources list.
+    When installed by Nexus, most settings can alternatively be reached through the Configure area for the addon:
 
-![Data sources](./06-datasources.png)
+    ![Configure TaimiHUD within Nexus](./02-configure.png)
+
+2. Within the Data Sources tab of the TaimiHUD primary window and settings, refresh the data sources list.
+
+    ![Data sources](./06-datasources.png)
 
 3. Install the pathing packs you desire.
 
-4. Open the Pathing window, either with the keybind in Nexus and ArcDPS for it or by the Nexus quick-access button.
+4. Open the Pathing window to customize your experience. It can be accessed with the keybind found in Nexus or ArcDPS settings, as well as by the Nexus quick-access button at the top of the screen.
 
-![Pathing window](./07-pathing.png)
+    ![Pathing window](./07-pathing.png)
