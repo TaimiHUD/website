@@ -2,6 +2,7 @@
 title = "Frequently Asked Questions"
 template = "page.html"
 date = 2026-02-06
+aliases = ["docs/faq"]
 +++
 
 ## Minimap looks squished or drawn outside the borders {#pathing-dpi}
