@@ -13,8 +13,8 @@ See also: [Issue tracker](https://github.com/TaimiHUD/TaimiHUD/issues)
 
 ### Organization
 
-Searching, filtering, and customization UI has been evolving since pre-release and \
-continues to receive significant revisions over time.
+Searching, filtering, and customization UI has been evolving since pre-release
+and continues to receive significant revisions over time.
 
 | Attribute       | Supported | Compatibility notes
 | --------------- | --------- | ----
@@ -42,7 +42,7 @@ They show up!
 
 ### Visual
 
-Finer visual polish and customization are often unsupported, though \
+Finer visual polish and customization are often unsupported, though
 sometimes similar functionality can be tweaked globally by user settings.
 
 | Attribute        | Supported | Compatibility notes
@@ -76,8 +76,8 @@ sometimes similar functionality can be tweaked globally by user settings.
 
 ### Filters
 
-API-dependent filters are currently in beta testing and slated for the next major release as v0.4.
-Besides festivals, everything else is only available as part of the v0.5 interaction \
+API-dependent filters are currently in beta testing and slated for the next major release as v0.4. \
+Besides festivals, everything else is only available as part of the v0.5 interaction
 alpha test and is planned to follow the API release.
 
 | Attribute         | Supported | Compatibility notes
@@ -97,7 +97,7 @@ alpha test and is planned to follow the API release.
 
 ### Dynamic Interactions
 
-Anything related to triggers is currently in active development and is the focus of the ongoing alpha test.
+Anything related to triggers is currently in active development and is the focus of the ongoing alpha test. \
 See the relevant discord channel for testing details and caveats.
 
 | Attribute      | Supported | Compatibility notes
