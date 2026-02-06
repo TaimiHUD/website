@@ -5,7 +5,7 @@ date = 2026-02-06
 aliases = ["docs/faq"]
 +++
 
-## Minimap looks squished or drawn outside the borders {#pathing-dpi}
+## Minimap looks squished or drawn outside the borders {#map-dpi}
 
 Try toggling the DPI Scaling setting, found in the Config tab of TaimiHUD's primary window.
 If the in-game Graphics Settings have unchecked DPI Scaling, then uncheck it so both checkboxes match.
@@ -19,7 +19,7 @@ TaimiHUD's own format will not be recognized by the Commander's Markers module f
 Tip: if you have the RealTime API addon installed (available through Nexus)
 then you can have it auto-import from markers you've already placed on the current map.
 
-## How do I get pathing to work? {#pathing-setup}
+## How do I get paths to work? {#pathing-setup}
 
 Follow the [install guide instructions](/install-guide/#pathing-enablement).
 
