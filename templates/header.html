@@ -1,6 +1,11 @@
 {% include "colorscheme.html" %}
 
-<h1><a href="/"><img class="logo" src="./logotype-holo.png" alt="{{ config.extra.site_title }}"></img></a><small></small></h1>
+<h1>
+  {% if header_prenav_logo is defined %}
+    <a href="/#taimi"><img class="logo" src="/logotype-holo.png" alt="{{ config.extra.site_title }}"></img></a>
+  {% endif %}
+  <small></small>
+</h1>
 <nav>
   <ul>
     <li><a href="/">Home</a></li>
