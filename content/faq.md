@@ -47,7 +47,7 @@ Tracking: [goggles](https://github.com/TaimiHUD/TaimiHUD/issues/67)
 
 ## Timers
 
-### Where are the little circles or arrows that point to canonns?
+### Where are the little circles or arrows that point to cannons?
 
 Not yet supported.
 
