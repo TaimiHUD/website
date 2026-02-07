@@ -6,7 +6,7 @@ date = 2025-11-22
 
 Credit to [Seres (@Seres67)](https://github.com/Seres67/) for taking these pictures.
 
-## Platform specific recommendations
+## Platform recommendations
 
 ### Linux
 
@@ -18,7 +18,11 @@ Using [Heroic Launcher](https://heroicgameslauncher.com/) is recommended on macO
 
 If you do pay for Crossover and wish to use it, set Graphics to DXMT, Synchronization to MSync and in `winecfg` set `d3d11.dll` to `native-then-builtin`. A user reports that DXVK was extremely stuttery and D3DMetal doesn't work properly with Nexus.
 
-## Per-addon-loader specific install instructions
+### Windows
+
+It already works?
+
+## Instructions and supported addon loaders {#install}
 
 ### Nexus
 
@@ -27,9 +31,11 @@ If you do pay for Crossover and wish to use it, set Graphics to DXMT, Synchroniz
 
     ![Install TaimiHUD within Nexus](./01-install.png)
 
-2. Install some packs from the [in-game downloads](#pathing-enablement) and explore from there!
+2. Install some packs from the [in-game downloads](#paths) and explore from there!
 
-#### For pre-releases, if you want them
+#### Prereleases, if you want them {#rc}
+
+See also: [Feature Testing](/testers/)
 
 1. Hit configure for TaimiHUD within Nexus.
 
@@ -50,7 +56,7 @@ If you do pay for Crossover and wish to use it, set Graphics to DXMT, Synchroniz
 2. Place the DLL into the same folder as ArcDPS's dll \
     (usually the equivalent of `C:\Program Files\Guild Wars 2\` for your system).
 
-## Pathing enablement
+## Pathing enablement {#paths}
 
 1. Enable `KatRender Pathing (Experimental)` from within the TaimiHUD window's Pathing Options tab.
 
