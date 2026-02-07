@@ -98,7 +98,7 @@ alpha test and is planned to follow the API release.
 ### Dynamic Interactions
 
 Anything related to triggers is currently in active development and is the focus of the ongoing alpha test. \
-See the relevant discord channel for testing details and caveats.
+See the [test details](/docs/testers/#alpha) for caveats.
 
 | Attribute      | Supported | Compatibility notes
 | -------------- | --------- | ----
