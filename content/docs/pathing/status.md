@@ -3,6 +3,8 @@ title = "Pathing Status"
 template = "page.html"
 date = 2026-02-06
 aliases = ["pathing/status"]
+[extra]
+header2 = true
 +++
 
 ## TacO Pack Format

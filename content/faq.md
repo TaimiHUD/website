@@ -2,7 +2,10 @@
 title = "Frequently Asked Questions"
 template = "page.html"
 date = 2026-02-06
+updated = 2026-04-17
 aliases = ["docs/faq"]
+[extra]
+header2 = true
 +++
 
 ## Paths
@@ -28,6 +31,12 @@ It is available as part of the [test build](/testers/) if you'd like to try it o
 
 Tracking: [achievement filters](https://github.com/TaimiHUD/TaimiHUD/issues/59)
 
+### Markers for the latest festival can't be enabled {#festival}
+
+When our event schedule fails, you can manually override it from the Festivals section under Pathing Options.
+
+Tracking: [festival auto-detection](https://github.com/TaimiHUD/TaimiHUD/issues/60)
+
 ### Waypoints won't copy automatically, and where are those popups that help you do hearts? {#interact}
 
 Interactive functionality is currently the focus of an [alpha test build](/docs/testers/#alpha),
@@ -37,11 +46,15 @@ Tracking: [POI interactions](https://github.com/TaimiHUD/TaimiHUD/issues/4)
 
 ### Why does everything look glitched after turning on Goggles? {#goggles-glitched}
 
-This feature is incompatible with some of the game's graphics settings, in particular Super/Subsampling. \
-It also requires calibration on most maps the first time you visit them:
+This feature is incompatible with some of the game's graphics settings, in particular Super/Subsampling.
+<details>
+<summary>Calibration is currently required the first time you visit most maps:</summary>
 Slide the "near" slider down until paths disappear under the ground, then back off a bit.
-The sweet spot is usually when you can see the path with some rocks or blades of grass poking out. \
-If you see flickering or z-fighting during movement, back it off a touch more or tweak far.
+The sweet spot is usually when you can see the path with some rocks or blades of grass poking out.
+<br/>If you see flickering or z-fighting during movement, back it off a touch more or tweak far.
+</details>
+
+If you use this feature, consider helping test the new revamp as part of the ongoing [alpha test](/docs/testers/#alpha).
 
 Tracking: [goggles](https://github.com/TaimiHUD/TaimiHUD/issues/67)
 
@@ -68,6 +81,29 @@ It doesn't really matter, but if you want to share the file with your guild then
 TaimiHUD's own format will not be recognized by the Commander's Markers module for Blish HUD.
 
 ## Miscellaneous
+
+### It's broken on Linux or MacOS {#wine}
+
+You may be running an outdated version of Wine or Proton that isn't supported by TaimiHUD.
+Whiskey in particular is known to cause these issues.
+
+Common symptoms are:
+
+* KatRender checkbox is stuck off and may log shader errors such as:
+  * `syntax error, unexpected KW_DISCARD`
+  * `Function "dot" is not defined`
+* TaimiHUD may fail to start at all, reporting `error 127 (procedure not found)`
+* Crashes upon trying to download packs via the in-game Data Sources
+
+Our installation guide includes [some recommendations](/install-guide/#platform-recommendations) that may help.
+
+Tracking: [Wine](https://github.com/TaimiHUD/TaimiHUD/issues/56)
+
+### Multiboxing causes malfunction or FPS drops {#multibox}
+
+Addons that use Mumblelink data require that you provide the [`-mumble` option](https://wiki.guildwars2.com/wiki/Command_line_arguments#-mumble)
+to any additional instances of the game, even if you may only use TaimiHUD on your main account.
+This is labelled the `Mumble link name` option in gw2launcher. Blish HUD's [multibox instructions](https://blishhud.com/docs/user/guides/multibox-support) explain how to do this in detail.
 
 ### How do I get help or report a bug? {#help}
 

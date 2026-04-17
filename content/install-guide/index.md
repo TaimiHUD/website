@@ -2,6 +2,9 @@
 title = "Install Guide"
 template = "page.html"
 date = 2025-11-22
+updated = 2026-04-17
+[extra]
+header2 = true
 +++
 
 Credit to [Seres (@Seres67)](https://github.com/Seres67/) for taking these pictures.
@@ -16,7 +19,13 @@ Using Steam or [Heroic Launcher](https://heroicgameslauncher.com/) is likely bes
 
 Using [Heroic Launcher](https://heroicgameslauncher.com/) is recommended on macOS. Please *for the love of all that is good in this world*, do not use Whiskey. They ship Wine 7. It's rough.
 
-If you do pay for Crossover and wish to use it, set Graphics to DXMT, Synchronization to MSync and in `winecfg` set `d3d11.dll` to `native-then-builtin`. A user reports that DXVK was extremely stuttery and D3DMetal doesn't work properly with Nexus.
+Some have reported success with a variety of setups:
+
+* One CrossOver customer suggests: set Graphics to DXMT, Synchronization to MSync.
+  DXVK may be "extremely stuttery" and D3DMetal may not work properly with Nexus.
+* A recent Sikarugir Engine (1.0.11/10.0.5 at time of report) may work with D3DMetal.
+
+It's usually necessary to use `winecfg` to set the `d3d11.dll` library to `native-then-builtin`.
 
 ### Windows
 

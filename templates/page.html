@@ -5,6 +5,12 @@
   {{ page.title }}
 </h1>
 
+{% if page.updated and page.updated != page.date %}
+<p class="subtitle"><strong><time>Updated: {{ page.updated }}</time></strong></p>
+{% else %}
+<p class="subtitle"><strong><time>Posted: {{ page.date }}</time></strong></p>
+{% endif %}
+
 {% if page.toc %}
   <h2>Table of Contents</h2>
   <ul>
@@ -23,9 +29,10 @@
         </li>
     {% endfor %}
     </ul>
-  <h2>Content</h2>
+  {% if not page.extra.header2 %}
+    <h2>Content</h2>
+  {% endif %}
 {% endif %}
 
-<p class="subtitle"><strong><time>Posted: {{ page.date }}</time></strong></p>
 {{ page.content | safe }}
 {% endblock content %}

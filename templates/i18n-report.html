@@ -1,5 +1,5 @@
 <h2>en</h2>
-<details><summary>352 keys</summary><ul>
+<details><summary>375 keys</summary><ul>
 <li><pre style="display:inline;">join-discord</pre></li>
 <li><pre style="display:inline;">discord-link</pre></li>
 <li><pre style="display:inline;">having-issues</pre></li>
@@ -26,6 +26,7 @@
 <li><pre style="display:inline;">always</pre></li>
 <li><pre style="display:inline;">ask</pre></li>
 <li><pre style="display:inline;">never</pre></li>
+<li><pre style="display:inline;">update-allow</pre></li>
 <li><pre style="display:inline;">unset</pre></li>
 <li><pre style="display:inline;">add</pre></li>
 <li><pre style="display:inline;">create-arg</pre></li>
@@ -36,6 +37,7 @@
 <li><pre style="display:inline;">object</pre></li>
 <li><pre style="display:inline;">files</pre></li>
 <li><pre style="display:inline;">clear</pre></li>
+<li><pre style="display:inline;">refresh</pre></li>
 <li><pre style="display:inline;">refresh-files</pre></li>
 <li><pre style="display:inline;">model</pre></li>
 <li><pre style="display:inline;">revert</pre></li>
@@ -100,6 +102,7 @@
 <li><pre style="display:inline;">timer-key-trigger</pre></li>
 <li><pre style="display:inline;">timer-key-reset</pre></li>
 <li><pre style="display:inline;">config-tab</pre></li>
+<li><pre style="display:inline;">config-advanced</pre></li>
 <li><pre style="display:inline;">stock-imgui-progress-bar</pre></li>
 <li><pre style="display:inline;">shadow</pre></li>
 <li><pre style="display:inline;">centre-text-after-icon</pre></li>
@@ -116,6 +119,10 @@
 <li><pre style="display:inline;">icon-style-scanlines-1</pre></li>
 <li><pre style="display:inline;">preferred-loader</pre></li>
 <li><pre style="display:inline;">preferred-updater</pre></li>
+<li><pre style="display:inline;">update-revert-mainline</pre></li>
+<li><pre style="display:inline;">update-revert-mainline-notice-nexus</pre></li>
+<li><pre style="display:inline;">update-nexus-notice</pre></li>
+<li><pre style="display:inline;">update-nexus-provider-notice</pre></li>
 <li><pre style="display:inline;">gh-api-token</pre></li>
 <li><pre style="display:inline;">gh-api-token-notice</pre></li>
 <li><pre style="display:inline;">language</pre></li>
@@ -126,6 +133,18 @@
 <li><pre style="display:inline;">precise-markers</pre></li>
 <li><pre style="display:inline;">bind</pre></li>
 <li><pre style="display:inline;">press-key</pre></li>
+<li><pre style="display:inline;">api-tab</pre></li>
+<li><pre style="display:inline;">api-notice</pre></li>
+<li><pre style="display:inline;">api-token-label</pre></li>
+<li><pre style="display:inline;">api-setup-open</pre></li>
+<li><pre style="display:inline;">api-link</pre></li>
+<li><pre style="display:inline;">api-status-setup</pre></li>
+<li><pre style="display:inline;">api-refresh</pre></li>
+<li><pre style="display:inline;">api-refresh-achievements</pre></li>
+<li><pre style="display:inline;">api-refresh-raids</pre></li>
+<li><pre style="display:inline;">api-refresh-account</pre></li>
+<li><pre style="display:inline;">api-auto-update</pre></li>
+<li><pre style="display:inline;">api-permissions</pre></li>
 <li><pre style="display:inline;">primary-window</pre></li>
 <li><pre style="display:inline;">timers-window</pre></li>
 <li><pre style="display:inline;">markers-window</pre></li>
@@ -184,6 +203,7 @@
 <li><pre style="display:inline;">arcdps</pre></li>
 <li><pre style="display:inline;">arcdps-tab</pre></li>
 <li><pre style="display:inline;">nexus</pre></li>
+<li><pre style="display:inline;">multi-addon-host</pre></li>
 <li><pre style="display:inline;">reload-markers</pre></li>
 <li><pre style="display:inline;">marker-tab</pre></li>
 <li><pre style="display:inline;">pathing-tab</pre></li>
@@ -291,6 +311,9 @@
 <li><pre style="display:inline;">pathing-config-trail-width</pre></li>
 <li><pre style="display:inline;">pathing-config-goggles</pre></li>
 <li><pre style="display:inline;">pathing-config-goggles-notice</pre></li>
+<li><pre style="display:inline;">pathing-config-filters</pre></li>
+<li><pre style="display:inline;">pathing-config-api-bypass</pre></li>
+<li><pre style="display:inline;">pathing-config-api-bypass-notice</pre></li>
 <li><pre style="display:inline;">pathing-config-festivals</pre></li>
 <li><pre style="display:inline;">pathing-config-festival-active</pre></li>
 <li><pre style="display:inline;">pathing-config-reset-notice</pre></li>
@@ -672,10 +695,56 @@
 </ul></details>
 <h3>Progress</h3>
 <h4>Untranslated Fallbacks</h4>
-<ul><li><details><summary><pre style="display:inline;">unset =</pre></summary>
+<ul><li><details><summary><pre style="display:inline;">update-allow =</pre></summary>
+<blockquote>Allow once<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">unset =</pre></summary>
 <blockquote>Unset<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">refresh =</pre></summary>
+<blockquote>Refresh<br/></blockquote></details></li>
 <li><details><summary><pre style="display:inline;">count =</pre></summary>
 <blockquote>Count<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">config-advanced =</pre></summary>
+<blockquote>Advanced Settings<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">update-revert-mainline =</pre></summary>
+<blockquote>Revert to mainline releases<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">update-revert-mainline-notice-nexus =</pre></summary>
+<blockquote>Select stable vs pre-release betas via Nexus settings<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">update-nexus-notice =</pre></summary>
+<blockquote>In-game updates require Nexus. Auto-update responsibility can be configured under extension settings in ArcDPS or Nexus.<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">update-nexus-provider-notice =</pre></summary>
+<blockquote>You can manage updates under the addon Configure options in Nexus, as well as { disable } the { preferred-updater } for manual control.<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-tab =</pre></summary>
+<blockquote>API<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-notice =</pre></summary>
+<blockquote>An API key token allows you to opt in to personalized features such as hiding completed achievement markers. The `progression` and `characters` permissions are recommended.<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-token-label =</pre></summary>
+<blockquote>Token<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-setup-open =</pre></summary>
+<blockquote>Link Account<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-link =</pre></summary>
+<blockquote></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-status-setup =</pre></summary>
+<blockquote>Adding API key...<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-refresh =</pre></summary>
+<blockquote>Refresh...<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-refresh-achievements =</pre></summary>
+<blockquote>Achievements<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-refresh-raids =</pre></summary>
+<blockquote>Raid Clears<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-refresh-account =</pre></summary>
+<blockquote>Account<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-auto-update =</pre></summary>
+<blockquote>Automatic Updates<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">api-permissions =</pre></summary>
+<blockquote>Permissions<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">multi-addon-host =</pre></summary>
+<blockquote>All<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">pathing-config-filters =</pre></summary>
+<blockquote>Filters<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">pathing-config-api-bypass =</pre></summary>
+<blockquote>API bypass<br/></blockquote></details></li>
+<li><details><summary><pre style="display:inline;">pathing-config-api-bypass-notice =</pre></summary>
+<blockquote>Temporarily show completed achievements when replaying content with your friends<br/></blockquote></details></li>
 <li><details><summary><pre style="display:inline;">Miscellaneous_Interact =</pre></summary>
 <blockquote>Interact<br/></blockquote></details></li>
 <li><details><summary><pre style="display:inline;">UI_ShowHideUI =</pre></summary>
@@ -748,4 +817,4 @@
 <blockquote>{gamebind-marker-clear}{gamebind-marker-location-suffix}<br/></blockquote></details></li>
 <li><details><summary><pre style="display:inline;">Squad_ClearAllObjectMarkers =</pre></summary>
 <blockquote>{gamebind-marker-clear}{gamebind-marker-object-suffix}<br/></blockquote></details></li>
-</ul><p>(38 total)</p>
+</ul><p>(61 total)</p>
