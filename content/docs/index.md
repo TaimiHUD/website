@@ -9,3 +9,4 @@ not much here yet...
 * [FAQ](/faq/)
 * [Install Guide](/install-guide/)
 * [Pathing Status](/docs/pathing/status/)
+* [Translation](/docs/i18n/)

@@ -32,7 +32,9 @@
         {% include "header.html" %}
       </header>
       <main>
+        {% block precontent %} {% endblock precontent %}
         {% block content %} {% endblock content %}
+        {% block postcontent %} {% endblock postcontent %}
       </main>
       <footer>
         {% include "footer.html" %}
