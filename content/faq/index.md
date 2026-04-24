@@ -2,7 +2,7 @@
 title = "Frequently Asked Questions"
 template = "page.html"
 date = 2026-02-06
-updated = 2026-04-17
+updated = 2026-04-23
 aliases = ["docs/faq"]
 [extra]
 header2 = true
@@ -57,6 +57,13 @@ The sweet spot is usually when you can see the path with some rocks or blades of
 If you use this feature, consider helping test the new revamp as part of the ongoing [alpha test](/docs/testers/#alpha).
 
 Tracking: [goggles](https://github.com/TaimiHUD/TaimiHUD/issues/67)
+
+### Can I suggest a pack to include for in-game download? {#datasources}
+
+We accept change requests made to our [Data Sources](https://github.com/TaimiHUD/DataSources#template-samples) tracking repo.
+
+You may also leave a request for a pack to be added by [contacting us](#help) or through
+submissions to the [#share-your-packs](https://discord.com/channels/1385422230741323836/1466603641132683460) channel on Discord.
 
 ## Timers
 

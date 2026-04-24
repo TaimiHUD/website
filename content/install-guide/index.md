@@ -2,7 +2,7 @@
 title = "Install Guide"
 template = "page.html"
 date = 2025-11-22
-updated = 2026-04-17
+updated = 2026-04-23
 [extra]
 header2 = true
 +++
@@ -40,23 +40,9 @@ It already works?
 
     ![Install TaimiHUD within Nexus](./01-install.png)
 
-2. Install some packs from the [in-game downloads](#paths) and explore from there!
+2. [Opt in to prerelease updates](/docs/testers/#rc-nexus) if you want to preview [new features](/docs/testers/#rc).
 
-#### Prereleases, if you want them {#rc}
-
-See also: [Feature Testing](/testers/)
-
-1. Hit configure for TaimiHUD within Nexus.
-
-    ![Configure TaimiHUD within Nexus](./02-configure.png)
-
-2. Enable `Allow Pre-Release Updates` for TaimiHUD within the configure area.
-
-    ![Enable pre-releases](./03-pre-releases.png)
-
-3. Check for updates to make Nexus download the pre-release version of TaimiHUD.
-
-    ![Check for updates](./04-check-for-updates.png)
+3. Install some packs from the [in-game downloads](#paths) and explore from there!
 
 ### ArcDPS
 
@@ -84,3 +70,8 @@ See also: [Feature Testing](/testers/)
 4. Open the Pathing window to customize your experience. It can be accessed with the keybind found in Nexus or ArcDPS settings, as well as by the Nexus quick-access button at the top of the screen.
 
     ![Pathing window](./07-pathing.png)
+
+## Additional support {#support}
+
+Try checking our [FAQ](/faq/) for information about common problems,
+then [reach out to us](/faq/#help) if you need additional help getting started.
