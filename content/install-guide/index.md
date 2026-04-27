@@ -59,7 +59,7 @@ It already works?
 
     When installed by Nexus, most settings can alternatively be reached through the Configure area for the addon:
 
-    ![Configure TaimiHUD within Nexus](./02-configure.png)
+    ![Configure TaimiHUD within Nexus](/docs/testers/rc-nexus-01-configure.png)
 
 2. Within the Data Sources tab of the TaimiHUD primary window and settings, refresh the data sources list.
 
