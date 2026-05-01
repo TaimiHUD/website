@@ -41,7 +41,7 @@ Note that pre-releases are no longer required to get access to basic pathing fun
 
 1. Hit configure for TaimiHUD within Nexus.
 
-    ![Configure TaimiHUD within Nexus](./rc-nexus-01-configure.png)
+    ![Configure TaimiHUD within Nexus](/install-guide/02-configure.png)
 
 2. Enable `Allow Pre-Release Updates` for TaimiHUD within the configure area.
 
