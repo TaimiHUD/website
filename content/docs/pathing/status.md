@@ -2,12 +2,13 @@
 title = "Pathing Status"
 template = "page.html"
 date = 2026-02-06
+updated = 2026-05-21
 aliases = ["pathing/status"]
 [extra]
 header2 = true
 +++
 
-## TacO Pack Format
+## TacO Pack Format {#taco}
 
 An overview of TaimiHUD's support for pathing pack [attributes and features](https://gw2pathing.com/docs/marker-dev/development/attributes).
 
@@ -125,21 +126,187 @@ See the [test details](/docs/testers/#alpha) for caveats.
 | `script-filter`  | ☒ | 〃
 | `script-once`    | ☒ | 〃
 
-### Compatibility notes
+### Compatibility notes {#taco-compat}
 
 * TaimiHUD *may* pay attention to `bh-` prefixed attributes if a generic fallback isn't present :\<
 * The XML parser tends to be strict, so pay attention to logs in Nexus (and increase verbosity to see All messages) when diagnosing problems
 
-### History
+### History {#taco-history}
 
-#### v0.3.x
+#### v0.3.x {#taco-history-0_3}
 
 Basic initial support
 
-#### v0.4.x
+#### v0.4.x {#taco-history-0_4}
 
 Planned release for API and achievement filters
 
-#### v0.5.x
+#### v0.5.x {#taco-history-0_5}
 
 Slated to include interaction triggers, info popups, clipboard copying, etc
+
+## Pathing Scripts {#script}
+
+TaimiHUD is in early stages of prototyping compatibility with `pack.lua` and most [related scripting features](https://gw2pathing.com/docs/lua-scripting/lua-lib/api_intro)
+offered by Blish HUD's Pathing Module.
+
+### API Support {#script-api}
+
+There is no standard protocol for unimplemented functions yet - expect anything
+from interrupted script execution with an error to returning `nil`
+or placeholder values if a request couldn't be processed.
+
+* ☑ `PathingVersion`: fixed to `1.11.999+taimi` to indicate compatibility with recent versions of the module
+* ☐ `Pathing.Version`: fixed to `1.11.999` (TODO?)
+* ☐ `Pathing:IsVersionAtLeast(v)`: TODO \
+  TODO: allow requests ending in `+taimi` or similar to check against our real versioning scheme in a way that Pathing will always respond false? \
+  NOTE: `Pathing:IsVersionAtLeast(PathingVersion)` might be a quick way to check - should always be true under Blish HUD?
+* ☑ `Debug:Print`
+* ☑ `Debug:Warn`
+* ☑ `Debug:Error`
+* ☐ `Debug:Watch`
+* ☐ `Debug:ClearWatch`
+* ☑ `Pack:Require`
+* ☐ `Mumble`: TODO
+* ☐ `Menu`: TODO
+  * ☐ `Menu:Add`
+  * ☐ `Menu:Remove`
+  * ☐ `.OnClick`
+  * ☐ `.Tooltip`
+  * ☐ `.CanCheck`, `.Checked`
+* ☐ `Event:OnTick`: TODO
+* ☐ `User:SetClipboard(value)`: TODO
+* ☐ `Vector3`: TODO
+  * ☐ `.X`, `.Y`, `.Z`: TODO
+  * ☐ `I:Vector3`: TODO
+  * ☑ `:Length`, `:Dot`
+  * ☐ `:Normalize`, `:Cross`
+  * ☐ binary ops: TODO
+* ☐ `GameTime`: TODO
+  * ☐ `.ElapsedGameTime`, `.TotalGameTime`: TODO
+  * ☐ `TimeSpan`: TODO
+    * ☐ getters: TODO
+* ☐ `Color`: TODO
+  * ☐ `.R`, `.G`, `.B`, `.A`: TODO
+  * ☐ `I:Color`: TODO
+* ☐ `Guid`: TODO
+  * ☑ `:ToBase64`: TODO
+  * ☐ `I:Guid`: TODO
+* ☐ `Texture`: TODO
+  * ☐ `.Width`, `.Height`: TODO
+  * ☐ `I:Texture(Pack, path)`: TODO
+  * ☐ `I:Texture(web_id)`: TODO?
+* ☐ `World`: TODO
+  * ☐ `:CategoryByType`: TODO
+  * ☐ `:PathableByGuid`: TODO
+  * ☐ `:PathablesByGuid`: TODO
+  * ☐ `:MarkerByGuid`: TODO
+  * ☐ `:GetClosestMarker`, `World:GetClosestMarker(filtered)`: TODO
+  * ☐ `:GetClosestMarkers`, `World:GetClosestMarkers(filtered)`: TODO
+  * ☐ `:TrailByGuid`: TODO
+* ☐ `Category`: TODO
+  * ☑ `.Name`, `.DisplayName`, `.Namespace`, `.DefaultToggle`, `.IsHidden`, `.IsSeparator`, `.Root`: getters
+  * ☐ `.LoadedFromPack`: TODO
+  * ☑ `.Parent`: TODO
+  * ☐ setters: TODO?
+  * ☐ `:GetOrAddCategoryFromNamespace`: TODO
+  * ☐ `:IsVisible`: TODO
+  * ☐ `:Show`: TODO
+  * ☐ `:Hide`: TODO
+  * ☐ `:GetMarkers`, `:GetMarkers(recursive)`: TODO
+  * ☐ `:GetTrails`, `:GetTrails(recursive)`: TODO
+* ☐ `IPathable`: TODO
+  * ☐ getters: TODO
+  * ☐ setters: TODO
+  * ☐ `:Focus`: TODO
+  * ☐ `:Unfocus`: TODO
+  * ☐ `:Interact`: TODO
+  * ☐ (Trail)`:Remove`, (Marker)`:Remove`: TODO
+  * ☐ (Trail)`:GetBehavior`, (Marker)`:GetBehavior`: TODO
+* ☐ `Marker`: TODO
+  * ☐ getters: TODO
+  * ☐ setters: TODO
+    * ☐ `:SetPos`, `:SetRot`: TODO
+    * ☐ `:SetTexture(path)`: TODO
+    * ☐ `:SetTexture(web_id)`: TODO
+  * ☐ `Pack:CreateMarker`: TODO
+  * ☐ `I:Marker`: TODO
+* ☐ `Trail`: TODO
+  * ☐ getters: TODO
+  * ☐ setters: TODO
+    * ☐ `:SetTexture(path)`: TODO
+    * ☐ `:SetTexture(web_id)`: TODO
+  * ☐ `Pack:CreateTrail`: TODO
+  * ☐ `I:Trail`: TODO
+  * ☐ `:SetPoints`: TODO
+* ☐ `IBehavior`: TODO
+
+#### Undocumented API
+
+TODO: check whether these were deprecated or if the reference is just out of date...
+
+* ☑ `Debug:Info`
+* ☐ `Debug:ShowMessage`
+* ☐ `User:SetClipboard(value, message)`
+* ☐ `User:ShowInfo(message) -> string key`
+* ☐ `User:HideInfo(key)`
+* ☐ `Storage:UpsertValue`
+* ☐ `Storage:DeleteValue`
+* ☐ `Storage:ReadValue`
+* ☐ `_G.Packs = _G.World`
+
+#### References {#script-references}
+
+* [Tutorials and sample code](https://gw2pathing.com/docs/lua-scripting/lua-tutorials/getting-started)
+* [API reference documentation](https://gw2pathing.com/docs/lua-scripting/lua-lib/api_intro)
+* [TehsTrails](https://github.com/xrandox/TehsTrails/blob/main/TehsTrails/Pack.lua) was a motivating use-case for the feature
+* [Hero's Marker Pack](https://github.com/QuitarHero/Heros-Marker-Pack/blob/master/markers/pack.lua) appears to be a good stress test and destination for more intricate fight simulation logic than traditional timer descriptions.
+
+### Additions and Changes {#script-extensions}
+
+* `TaimiVersion`: TODO
+
+### Lua Runtime {#script-lua}
+
+Some misc runtime characteristics to expect:
+
+* currently targets lua 5.1 ([luajit 2.1 backend](https://luajit.org/extensions.html), pluggable at build-time)
+  * ☐ `coroutine`: TODO?
+  * ☐ `bit32`: TODO?
+* a number of standard library functions may be exposed as partial shims:
+  * ☐ `print` as an alias to `Debug:Print`: TODO
+  * ☐ `require`: TODO
+  * ☐ `os.clock`
+  * ☐ `os.date`
+  * ☐ `os.time`
+  * ☐ `os.difftime`
+* see the `unsecured` setting if something's missing
+
+### Wishlist {#script-wishlist}
+
+* a designated subfolder as a substitute for `LUA_PATH`?
+* `package.preload` and `package.loaded`
+* some table to opt in to sharing data across pack boundaries
+* query and/or poke all other packs?
+* more UI primitives, events, etc.
+* reflection for bindings to various stuff (bevy or macro or otherwise) \
+  maybe use as a general-purpose debug tool for taimihud (and/or pack) development?
+* `io.open` for pack resources
+
+#### Misc TODOs {#script-todo}
+
+* script.lua.enable datasource flag
+* prompt and require opt-in to script execution per pack
+* try out the tutorial examples
+* empty packs should fail to load as long as they don't contain a script entry point
+* be intentional about anything provided from `_G`
+  * export unfiltered `_G` and/or `_ENV` to scripts when unsecured, and to `require()`
+* consider how threading/coroutines interact with events and our controller
+* repl (in-game console)
+* repl (standalone)
+
+### History {#script-history}
+
+#### v0.5.x {#script-history-0_5}
+
+Initial lua prototyping
