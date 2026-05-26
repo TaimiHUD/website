@@ -245,6 +245,8 @@ or placeholder values if a request couldn't be processed.
   * ☐ `:Interact`: TODO
   * ☐ (Trail)`:Remove`, (Marker)`:Remove`: TODO
   * ☐ (Trail)`:GetBehavior`, (Marker)`:GetBehavior`: TODO
+  * ☐ `.BehaviorFiltered`: TODO
+  * ☐ `DistanceToPlayer`: TODO
 * ☐ `Marker`: TODO
   * ☐ getters: TODO
   * ☐ setters: TODO
@@ -262,8 +264,6 @@ or placeholder values if a request couldn't be processed.
   * ☒ `I:Trail`: TODO
   * ☒ `:SetPoints`: TODO
 * ☒ `IBehavior`: TODO
-* ☐ `__tostring` and other operators relevant at all, if so on what?
-  do setters ever return anything? any other details missing?
 
 #### Undocumented API
 
@@ -280,6 +280,18 @@ TODO: check whether these were deprecated or if the reference is just out of dat
 * ☐ `Mumble.UI.MapCenter` and `MapPosition` type - Vector2?
 * ☐ `Mumble.UI.CompassSize` type - Vector2 or Size2?
 * ☐ `_G.Packs = _G.World`
+
+##### Ambiguous Behaviour
+
+misc things to double-check:
+
+* instance fields like those on Vector3 are generally writable, right?
+* are pathable attribute fields expected to work by reference, e.g. is `marker.Position.X = new_x` equivalent to `marker:SetPosX(new_x)`? if ineffective: is it an error to set, clobbered immediately, ignored and desync'd from real state, or what?
+* are integer to number coercions wanted and/or needed for setters and methods?
+* is the set of valid behaviour names a fixed/known enum?
+* `__tostring` and other operators relevant at all, if so on what?
+* any other missing details?
+* does `Mumble.IsAvailable` account for temporary dropouts (like say loading screens, charsel, etc)? or only false if disabled?
 
 #### References {#script-references}
 
@@ -341,6 +353,8 @@ Some misc runtime characteristics to expect:
 * be intentional about anything provided from `_G`
   * export unfiltered `_G` and/or `_ENV` to scripts when unsecured, and to `require()`
 * consider how threading/coroutines interact with events and our controller
+* setter methods generally don't need `&mut self`
+* fallback pack/root ID to longest common prefix
 * repl (in-game console)
 * repl (standalone)
 
