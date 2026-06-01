@@ -322,7 +322,6 @@ misc things to double-check:
 Some misc runtime characteristics to expect:
 
 * currently targets lua 5.1 ([luajit 2.1 backend](https://luajit.org/extensions.html), pluggable at build-time)
-  * ☐ `coroutine`: TODO?
   * ☐ `bit32`: TODO?
 * a number of standard library functions may be exposed as partial shims:
   * ☐ `print` as an alias to `Debug:Print`: TODO
@@ -331,6 +330,7 @@ Some misc runtime characteristics to expect:
   * ☐ `os.date`
   * ☐ `os.time`
   * ☐ `os.difftime`
+  * ☐ stdlib for whatever is offered by pathing? coroutine, table.unpack+move, etc...
 * see the `unsecured` setting if something's missing
 
 ### Wishlist {#script-wishlist}
