@@ -158,55 +158,54 @@ or placeholder values if a request couldn't be processed.
 
 * ☑ `PathingVersion`: fixed to `1.11.999+taimi` to indicate compatibility with recent versions of the module
 * ☑ `Pathing.Version`: fixed to `1.11.999`
-* ☐ `Pathing:IsVersionAtLeast(v)`: TODO \
-  TODO: allow requests ending in `+taimi` or similar to check against our real versioning scheme in a way that Pathing will always respond false? \
-  NOTE: `Pathing:IsVersionAtLeast(PathingVersion)` might be a quick way to check - should always be true under Blish HUD?
-  * TODO: consider version constraint queries or exposing more fine-grained feature flag requests
+* ☑ `Pathing:IsVersionAtLeast(v)`
 * ☑ `Debug:Print`
 * ☑ `Debug:Warn`
 * ☑ `Debug:Error`
-* ☐ `Debug:Watch`
-* ☐ `Debug:ClearWatch`
+* ☑ `Debug:Watch`
+* ☑ `Debug:ClearWatch`
 * ☑ `Pack:Require`
-* ☐ `Mumble`: TODO
-  * ☐ `Mumble.Tick`, `Mumble.TimeSinceTick`: TODO
+* ☑ `Mumble`
+  * ☐ `Mumble.Tick`, `Mumble.TimeSinceTick`
   * ☐ `Mumble.CurrentMumbleMapName`: TODO
-  * ☐ `Mumble.IsAvailable`: TODO
-  * ☐ `Mumble.CurrentMap`: TODO
-    * ☐ `.Id`, `.IsCompetitiveMode`, `.Type`: TODO
-  * ☐ `Mumble.Info`: TODO
-    * ☐ `.BuildId`, `.IsGameFocused`: TODO
-  * ☐ `Mumble.PlayerCamera`: TODO
+  * ☑ `Mumble.IsAvailable`
+  * ☑ `Mumble.CurrentMap`
+    * ☑ `.Id`, `.IsCompetitiveMode`
+    * ☐ `.Type`: TODO
+  * ☑ `Mumble.Info`
+    * ☑ `.BuildId`, `.IsGameFocused`
+  * ☑ `Mumble.PlayerCamera`
     * ☐ `.NearPlaneRenderDistance`, `.FarPlaneRenderDistance`: TODO
-    * ☐ `.FieldOfView`: TODO
-    * ☐ `.Position`, `.Forward`: TODO
-  * ☐ `Mumble.PlayerCharacter`: TODO
-    * ☐ `.Position`, `.Forward`: TODO
+    * ☑ `.FieldOfView`
+    * ☑ `.Position`, `.Forward`
+  * ☑ `Mumble.PlayerCharacter`
+    * ☑ `.Position`, `.Forward`
     * ☐ `.CurrentMount`: TODO
-    * ☐ `.IsInCombat`, `.IsCommander`: TODO
-    * ☐ `.Race`, `.Specialization`, `.TeamColorId`: TODO
-  * ☐ `Mumble.UI`: TODO
-    * ☐ `.CompassRotation`, `.CompassSize`, `.IsCompassRotationEnabled`, `.IsCompassTopRight`: TODO
-    * ☐ `.MapCenter`, `.MapPosition`, `.MapScale`, `.IsMapOpen`: TODO
-    * ☐ `.IsTextInputFocused`: TODO
+    * ☑ `.IsInCombat`, `.IsCommander`
+    * ☑ `.Race`, `.Specialization`, `.TeamColorId`
+  * ☑ `Mumble.UI`
+    * ☑ `.CompassRotation`, `.CompassSize`, `.IsCompassRotationEnabled`, `.IsCompassTopRight`
+    * ☐ `.MapCenter`, `.MapPosition`: TODO unknown type and fields
+    * ☑ `.MapScale`, `.IsMapOpen`
+    * ☑ `.IsTextInputFocused`
     * ☐ `.UISize`: TODO
   * ☐ `MumbleMapType`, `MumbleMountType`, `MumbleRaceType`, `MumbleUiSize`: TODO (assuming these are actual lua tables and not just for reference?)
-* ☐ `Menu`: TODO
-  * ☐ `Menu:Add`
-  * ☐ `Menu:Remove`
-  * ☐ `.OnClick`
-  * ☐ `.Tooltip`
-  * ☐ `.CanCheck`, `.Checked`
-* ☐ `Event:OnTick`: TODO
-* ☐ `User:SetClipboard(value)`: TODO
+* ☑ `Menu`
+  * ☑ `Menu:Add`
+  * ☑ `Menu:Remove`
+  * ☑ `.OnClick`
+  * ☑ `.Tooltip`
+  * ☑ `.CanCheck`, `.Checked`
+* ☑ `Event:OnTick`
+* ☑ `User:SetClipboard(value)`
 * ☑ `Vector3`
   * ☑ `.X`, `.Y`, `.Z`
   * ☑ `I:Vector3`
   * ☑ `:Length`, `:Dot`
   * ☑ `:Normalize`, `:Cross`
-  * ☐ binary ops: TODO (add to trait! types and coersions? operand order? `__le/__lt`? `__eq`? `__tostring`?)
-* ☐ `GameTime`: TODO
-  * ☐ `.ElapsedGameTime`, `.TotalGameTime`: TODO
+  * ☑ binary ops
+* ☑ `GameTime`
+  * ☑ `.ElapsedGameTime`, `.TotalGameTime`
   * ☑ `TimeSpan`
 * ☑ `Color`
   * ☑ `.R`, `.G`, `.B`, `.A`
@@ -214,56 +213,56 @@ or placeholder values if a request couldn't be processed.
 * ☑ `Guid`
   * ☑ `:ToBase64`
   * ☑ `I:Guid`
-* ☐ `Texture`: TODO
+* ☑ `Texture`
   * ☐ `.Width`, `.Height`: TODO
-  * ☒ `I:Texture(Pack, path)`: TODO
-  * ☒ `I:Texture(web_id)`: TODO?
-* ☐ `World`: TODO
-  * ☐ `:CategoryByType`: TODO
-  * ☐ `:PathableByGuid`: TODO
-  * ☐ `:PathablesByGuid`: TODO
-  * ☐ `:MarkerByGuid`: TODO
+  * ☑ `I:Texture(Pack, path)`
+  * ☒ `I:Texture(web_id)`: TODO
+* ☑ `World`
+  * ☑ `:CategoryByType`
+  * ☑ `:PathableByGuid`
+  * ☑ `:PathablesByGuid`
+  * ☑ `:MarkerByGuid`
   * ☐ `:GetClosestMarker`, `World:GetClosestMarker(filtered)`: TODO
   * ☐ `:GetClosestMarkers`, `World:GetClosestMarkers(filtered)`: TODO
-  * ☐ `:TrailByGuid`: TODO
-* ☐ `Category`: TODO
+  * ☑ `:TrailByGuid`
+* ☑ `Category`
   * ☑ `.Name`, `.DisplayName`, `.Namespace`, `.DefaultToggle`, `.IsHidden`, `.IsSeparator`, `.Root`: getters
   * ☐ `.LoadedFromPack`: TODO
   * ☑ `.Parent`: TODO
-  * ☐ setters: TODO?
-  * ☐ `:GetOrAddCategoryFromNamespace`: TODO
-  * ☐ `:IsVisible`: TODO
-  * ☐ `:Show`: TODO
-  * ☐ `:Hide`: TODO
-  * ☐ `:GetMarkers`, `:GetMarkers(recursive)`: TODO
-  * ☐ `:GetTrails`, `:GetTrails(recursive)`: TODO
-* ☐ `IPathable`: TODO
-  * ☐ getters: TODO
-  * ☐ setters: TODO
+  * ☐ setters: TODO (many implemented but not all, types/names may be incorrect, etc)
+  * ☑ `:GetOrAddCategoryFromNamespace`
+  * ☑ `:IsVisible`
+  * ☑ `:Show`
+  * ☑ `:Hide`
+  * ☑ `:GetMarkers`, `:GetMarkers(recursive)`
+  * ☑ `:GetTrails`, `:GetTrails(recursive)`
+* ☑ `IPathable`: TODO
+  * ☐ getters: TODO (many implemented but not all, types/names may be incorrect, etc)
+  * ☐ setters: TODO (")
   * ☐ `:Focus`: TODO
   * ☐ `:Unfocus`: TODO
   * ☐ `:Interact`: TODO
-  * ☐ (Trail)`:Remove`, (Marker)`:Remove`: TODO
-  * ☐ (Trail)`:GetBehavior`, (Marker)`:GetBehavior`: TODO
-  * ☐ `.BehaviorFiltered`: TODO
-  * ☐ `DistanceToPlayer`: TODO
-* ☐ `Marker`: TODO
-  * ☐ getters: TODO
-  * ☐ setters: TODO
-    * ☐ `:SetPos`, `:SetRot`: TODO
-    * ☐ `:SetTexture(path)`: TODO
-    * ☐ `:SetTexture(web_id)`: TODO
-  * ☐ `Pack:CreateMarker`: TODO
-  * ☒ `I:Marker`: TODO
-* ☐ `Trail`: TODO
-  * ☐ getters: TODO
-  * ☐ setters: TODO
-    * ☐ `:SetTexture(path)`: TODO
-    * ☐ `:SetTexture(web_id)`: TODO
+  * ☑ (Trail)`:Remove`, (Marker)`:Remove`
+  * ☐ (Trail)`:GetBehavior`, (Marker)`:GetBehavior`: semi-functional
+  * ☐ `.BehaviorFiltered`: TODO (requires 0.5)
+  * ☑ `DistanceToPlayer`
+* ☑ `Marker`
+  * ☐ getters: TODO (many implemented but not all, types/names may be incorrect, etc)
+  * ☐ setters: TODO (")
+    * ☑ `:SetPos`, `:SetRot`
+    * ☑ `:SetTexture(path)`
+    * ☒ `:SetTexture(web_id)`: TODO
+  * ☑ `Pack:CreateMarker`
+  * ☑ `I:Marker`
+* ☑ `Trail`: TODO
+  * ☐ getters: TODO (many implemented but not all, types/names may be incorrect, etc)
+  * ☐ setters: TODO (")
+    * ☑ `:SetTexture(path)`
+    * ☒ `:SetTexture(web_id)`: TODO
   * ☐ `Pack:CreateTrail`: TODO
-  * ☒ `I:Trail`: TODO
+  * ☐ `I:Trail`: TODO
   * ☒ `:SetPoints`: TODO
-* ☒ `IBehavior`: TODO
+* ☐ `IBehavior`: semi-functional
 
 #### Undocumented API
 
@@ -271,12 +270,12 @@ TODO: check whether these were deprecated or if the reference is just out of dat
 
 * ☑ `Debug:Info`
 * ☐ `Debug:ShowMessage`
-* ☐ `User:SetClipboard(value, message)`
+* ☑ `User:SetClipboard(value, message)`
 * ☐ `User:ShowInfo(message) -> string key`
 * ☐ `User:HideInfo(key)`
-* ☐ `Storage:UpsertValue`
-* ☐ `Storage:DeleteValue`
-* ☐ `Storage:ReadValue`
+* ☑ `Storage:UpsertValue`: 2 overloads
+* ☑ `Storage:DeleteValue`: 2 overloads
+* ☑ `Storage:ReadValue`: 2 overloads
 * ☐ `Mumble.UI.MapCenter` and `MapPosition` type - Vector2?
 * ☐ `Mumble.UI.CompassSize` type - Vector2 or Size2?
 * ☐ `_G.Packs = _G.World`
@@ -285,6 +284,7 @@ TODO: check whether these were deprecated or if the reference is just out of dat
 
 misc things to double-check:
 
+* coordinate spaces: `CreateMarker({ ypos = Mumble.PlayerCharacter.Position.Z })` implies that Vector3 positions could be in the swizzled "blishspace"? unclear if `ypos` == `marker.Position.Y` or `Z` - and what about `marker:SetPosY()`? `trail:SetPoints()`? How about `marker.RotateXyz` and `marker:SetRotY()`?
 * instance fields like those on Vector3 are generally writable, right?
 * are pathable attribute fields expected to work by reference, e.g. is `marker.Position.X = new_x` equivalent to `marker:SetPosX(new_x)`? if ineffective: is it an error to set, clobbered immediately, ignored and desync'd from real state, or what?
 * are integer to number coercions wanted and/or needed for setters and methods?
@@ -292,6 +292,7 @@ misc things to double-check:
 * `__tostring` and other operators relevant at all, if so on what?
 * any other missing details?
 * does `Mumble.IsAvailable` account for temporary dropouts (like say loading screens, charsel, etc)? or only false if disabled?
+* do the `World` search functions cover markers among all loaded packs or just the calling script's?
 
 #### References {#script-references}
 
@@ -302,20 +303,42 @@ misc things to double-check:
 
 ### Additions and Changes {#script-extensions}
 
-* ☐ `TaimiVersion`: addon version
+(this section will be an incomplete mess throughout early development)
+
+* ☑ `TaimiVersion`: addon version
 * ☑ `TaimiApiVersion`: tracking api progress, currently: `0.0.1`
+* ☑ `TaimiPlug`: pack descriptor
 * ☒ `__tostring_debug`? customizing console output
-* ☒ `Debug:X()` multiple arg variants?
-* ☐ `Mumble.PlayerCharacter.Profession`: TODO
+* ☐ `Debug:X()` multiple arg variants?
+* ☑ `Mumble.PlayerCharacter.Profession`: TODO?
+* ☐ `Taimi.Pack:Remove(IPathable)`: TODO?
 * ☒ `Taimi.Account.Id`: TODO (opt-in?)
 * ☒ `Taimi.Camera.Up`
+* ☒ all camera/player/etc vec3s changed to either mumble-local coords or in-game inches: TODO
 * ☒ `Taimi.Map.Instance`: IP
 * ☒ `Taimi.Gameplay.IsLieutenant`
 * ☒ `Taimi.Gameplay.IsDowned`, `Taimi.Gameplay.IsFlying`, `Taimi.Gameplay.IsGliding`, `Taimi.Gameplay.IsUnderwater`, `Taimi.Gameplay.IsFloating`: TODO
 * ☒ `Taimi.Process.Id`
 * ☒ `Taimi.Spatial.Camera`, `Taimi.Spatial.Player`, `Taimi.Spatial.ContinentScale`, `Taimi.Spatial:PosFromContinent` for conversions to/from inches? TODO
 * ☒ `Taimi.Menu.NexusRoot`: TODO
+* ☒ `Taimi.Menu.NexusQA`: TODO
 * ☐ `Taimi.Overlay.IsTextInputFocused`: TODO
+<!--
+* ☐ `@taimi/menu`: TODO
+  * ☑ `MenuItem`
+  * ☑ `Menu`
+  * ☑ `MenuHandle`
+  * ☑ `@taimi/core/menu`: TODO
+    * ☑ `MenuHandle:{Get,Set,Unset}AttrByKey`: TODO
+    * ☑ `MenuHandle:GetId()`: TODO
+    * ☑ `Menu:GenId(parent, seed)`: TODO
+    * ☑ `Menu:Register(id)`: TODO
+    * ☑ `Menu:RemoveId(id)`: TODO
+    * ☑ `Menu:LookupId(id)`: TODO
+    * ☑ `Menu:GetId()`: TODO
+    * ☑ `Menu:GetAttrByKey`: TODO
+    * ☒ `Menu:Iter`? TODO
+-->
 
 ### Lua Runtime {#script-lua}
 
@@ -355,11 +378,35 @@ Some misc runtime characteristics to expect:
 * consider how threading/coroutines interact with events and our controller
 * setter methods generally don't need `&mut self`
 * fallback pack/root ID to longest common prefix
-* repl (in-game console)
 * repl (standalone)
+* check if `Pathing:IsVersionAtLeast(PathingVersion)` is always be true under Blish HUD?
+
+##### Polish {#script-polish}
+
+Much of the feature is functional but barebones:
+
+* Vector3 metamethod polish: types and coersions? operand order? `__le/__lt`? `__eq`? `__tostring`?
+* in-game debugging:
+  * up/down command history, console output, improved UI, etc
+  * debug watch navigation and formatting needs work
+* `Pathing:IsVersionAtLeast`: allow requests ending in `+taimi` or similar to check against our real versioning scheme in a way that Pathing will always respond false?
+  * TODO: consider version constraint queries or exposing more fine-grained feature flag requests
+
+#### Issues {#script-bugs}
+
+* [ ] Menu tooltips render poorly
+* [ ] `menu.CanCheck = false` probably not fully working?
+
+#### Pack Compatibility {#script-compat}
+
+TODO: track and fill
 
 ### History {#script-history}
 
 #### v0.5.x {#script-history-0_5}
+
+Integration with new interaction systems
+
+#### v0.4.x {#script-history-0_4}
 
 Initial lua prototyping
