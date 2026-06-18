@@ -2,7 +2,7 @@
 title = "Pathing Status"
 template = "page.html"
 date = 2026-02-06
-updated = 2026-05-21
+updated = 2026-06-17
 aliases = ["pathing/status"]
 [extra]
 header2 = true
@@ -293,12 +293,17 @@ misc things to double-check:
 * any other missing details?
 * does `Mumble.IsAvailable` account for temporary dropouts (like say loading screens, charsel, etc)? or only false if disabled?
 * do the `World` search functions cover markers among all loaded packs or just the calling script's?
-* does changing maps wipe state and re-start pack.lua every time? if so, what about loading screens / waypoints?
+* will `World` expose markers for all maps or only the current map? if only current map, what about `Category:GetMarkers()`?
+  * how persistent are changes to properties on markers for a map other than the one you currently are on?
+* how persistent are changes to category properties?
+* does changing maps wipe state and/or re-start pack.lua every time? if so, what about loading screens / waypoints?
+  (and if not, why aren't there map lifecycle events?)
 * precise behaviour of `script-filter` isn't clear...
-  * documentation says nothing about returning true/false to show or hide the marker, but the name implies it so... check if `return true` means filtered(hidden) or unfiltered(visible)?
+  * documentation says nothing about returning true/false to show or hide the marker, but the name implies it so... `return true` appears to mean it should filter or hide the marker?
   * is the filter function ever called for a marker that *isn't* visible? say the function filters a marker one frame, does it continue to call the filter function afterward to allow it to unhide, or is the script required to do so out-of-band?
   * once filtered, what state on the marker changes? is it considered `BehaviorFiltered`?
-* what's a "load" in the context of `script-once`? presumably off-map markers aren't loaded?
+* what's a "load" in the context of `script-once`, presumably off-map markers aren't loaded? what if a marker is filtered until weekly reset and you enter its map, is it still loaded?
+  * `script-tick` also presumably only runs if the marker is "loaded"?
 * how does focus behave when dealing with auto-trigger markers - are both engaged simultaneously?
   after a marker is triggered (auto or manual), does it remain in focus?
   if `BehaviorFiltered` does it stay focused or unfocus upon filtering? can a filtered marker still become focused when you approach it?
@@ -381,10 +386,9 @@ Some misc runtime characteristics to expect:
 * script.lua.enable datasource flag
 * prompt and require opt-in to script execution per pack
 * try out the tutorial examples
-* empty packs should fail to load as long as they don't contain a script entry point
+* empty packs should still load if they contain a script entry point?
 * be intentional about anything provided from `_G`
   * export unfiltered `_G` and/or `_ENV` to scripts when unsecured, and to `require()`
-* consider how threading/coroutines interact with events and our controller
 * setter methods generally don't need `&mut self`
 * fallback pack/root ID to longest common prefix
 * repl (standalone)
