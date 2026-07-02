@@ -422,7 +422,12 @@ Packs that generally work with minor issues:
   * lightly tested, trail highlighting seems to work
 * [TehsTrails](https://github.com/xrandox/TehsTrails) v5.2.0
   * alternate mount icons will break things and may require clearing settings to unset
+
+Packs known to rely on missing features:
+
 * [Hero's Marker Pack](https://github.com/QuitarHero/Heros-Marker-Pack) sometimes in test scenarios but needs a few fixes for general use
+  * wants `os.date` for dailies tracking and whatnot
+  * HT sometimes works but broke again recently idk why
 
 ### History {#script-history}
 
