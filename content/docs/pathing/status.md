@@ -2,7 +2,7 @@
 title = "Pathing Status"
 template = "page.html"
 date = 2026-02-06
-updated = 2026-06-17
+updated = 2026-07-01
 aliases = ["pathing/status"]
 [extra]
 header2 = true
@@ -278,7 +278,8 @@ TODO: check whether these were deprecated or if the reference is just out of dat
 * ☑ `Storage:ReadValue`: 2 overloads
 * ☐ `Mumble.UI.MapCenter` and `MapPosition` type - Vector2?
 * ☐ `Mumble.UI.CompassSize` type - Vector2 or Size2?
-* ☐ `_G.Packs = _G.World`
+* ☑ `_G.Packs = _G.World`
+* ☑ `table.ToLson`, `table.FromLson`
 
 ##### Ambiguous Behaviour
 
@@ -307,6 +308,7 @@ misc things to double-check:
 * how does focus behave when dealing with auto-trigger markers - are both engaged simultaneously?
   after a marker is triggered (auto or manual), does it remain in focus?
   if `BehaviorFiltered` does it stay focused or unfocus upon filtering? can a filtered marker still become focused when you approach it?
+* tehstrails follows `CreateMarker({ copy = "" })` up with `m:GetBehavior("CopyModifier").CopyValue = next`, is clearing the clipboard the first time you interact the intended behaviour? (our GetBehavior would return nil otherwise so I assume it's semi intentional though maybe a hack?)
 
 #### References {#script-references}
 
@@ -361,8 +363,8 @@ Some misc runtime characteristics to expect:
 * currently targets lua 5.1 ([luajit 2.1 backend](https://luajit.org/extensions.html), pluggable at build-time)
   * ☐ `bit32`: TODO?
 * a number of standard library functions may be exposed as partial shims:
-  * ☐ `print` as an alias to `Debug:Print`: TODO
-  * ☐ `require`: TODO
+  * ☑ `print` as an alias to `Debug:Print`: TODO
+  * ☑ `require`: partly provided
   * ☐ `os.clock`
   * ☐ `os.date`
   * ☐ `os.time`
@@ -373,7 +375,6 @@ Some misc runtime characteristics to expect:
 ### Wishlist {#script-wishlist}
 
 * a designated subfolder as a substitute for `LUA_PATH`?
-* `package.preload` and `package.loaded`
 * some table to opt in to sharing data across pack boundaries
 * query and/or poke all other packs?
 * more UI primitives, events, etc.
@@ -409,10 +410,18 @@ Much of the feature is functional but barebones:
 
 * [ ] Menu tooltips render poorly
 * [ ] `menu.CanCheck = false` probably not fully working?
+  * initial menu checkbox state may not display correctly until toggled
 
 #### Pack Compatibility {#script-compat}
 
-TODO: track and fill
+Packs that generally work with minor issues:
+
+* [Movement On The World](https://github.com/Sutcenes/MovementOnTheWorld_TacoSupport#movement-on-the-world-blish-hud--taco) v34.5
+  * tutorial won't loop around properly due to setting `CopyValue = nil` on the final marker
+* [TehsTrails](https://github.com/xrandox/TehsTrails) v6.0.1
+  * lightly tested, trail highlighting seems to work
+* [TehsTrails](https://github.com/xrandox/TehsTrails) v5.2.0
+  * alternate mount icons will break things and may require clearing settings to unset
 
 ### History {#script-history}
 
