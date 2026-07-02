@@ -2,7 +2,7 @@
 title = "Feature Testing"
 template = "page.html"
 date = 2026-01-31
-updated = 2026-04-23
+updated = 2026-07-02
 aliases = ["/testers", "/alpha", "/beta"]
 [extra]
 header2 = true
@@ -10,7 +10,7 @@ header2 = true
 
 ## Alpha Test (v0.5) {#alpha}
 
-The current focus of our alpha test builds is [marker interactions](/faq/#interact).
+The current focus of our alpha test builds is [marker interactions](/faq/#interact) and [lua scripting](/docs/pathing/status/#script-compat).
 
 The latest information about our ongoing alpha test including instructions and known issues is currently recorded in a Discord channel dedicated to testing experimental features.
 [Click here to join as a tester](https://discord.gg/KcX67kFX2f).
