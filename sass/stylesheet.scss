@@ -185,6 +185,18 @@ header nav {
   flex-wrap: wrap;
   gap: 0.5em 1.25em;
   padding: 0.25em 0;
+  /* Ride along while scrolling; the accent rule is the nav's own border
+     (the old <hr>) so it travels too. Needs an opaque background. */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--accent);
+  /* A fixed height on wider screens gives the sticky headings below a
+     reliable offset to stack under */
+  @media (min-width: 600px) {
+    height: 3rem;
+  }
 
   /* Small always-visible site mark; the homepage shows the full logotype instead */
   .brand {
