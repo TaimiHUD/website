@@ -100,7 +100,7 @@ header nav, footer {
   /* Offsets: nav 3rem; a single-line h2 is ~2rem tall (1.35em of the
      1.25rem body at line-height 1.2). */
   .sectioned main {
-    h2, h3, h4 {
+    h2, h3 {
       position: sticky;
       background: var(--bg);
     }
@@ -111,10 +111,6 @@ header nav, footer {
     h3 {
       top: calc(3rem + 2rem);
       z-index: 3;
-    }
-    h4 {
-      top: calc(3rem + 2rem + 1.65rem);
-      z-index: 2;
     }
   }
 }
