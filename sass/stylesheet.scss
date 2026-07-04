@@ -65,6 +65,12 @@ body {
   }
 }
 
+table {
+    /* Wide tables (e.g. pathing status) scroll within themselves instead of overflowing the page on narrow screens */
+    display: block;
+    overflow-x: auto;
+}
+
 img {
     /* Make sure that the images do not overflow the body */
     max-width: 100%;
