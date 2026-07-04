@@ -8,7 +8,6 @@
   --fg: #ddd;
   --heading: #eee;
   --code-bg: #282828;
-  --code-border: #ddd;
   --border: #2e2e2e;
   --accent: #16b1bd;
   --link: #16b1bd;
@@ -23,7 +22,6 @@
   --fg: #333;
   --heading: #111;
   --code-bg: #eee;
-  --code-border: #333;
   --border: #ddd;
   --accent: #0d7680;
   --link: #0d7680;
@@ -48,8 +46,8 @@ html {
   }
   code {
     background: var(--code-bg);
-    padding: .5pt 5pt;
-    border: var(--code-border) 2px solid;
+    padding: 0.1em 0.4em;
+    border-radius: 0.25em;
   }
   code:has(pre) {
     display: block;
