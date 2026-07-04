@@ -38,7 +38,7 @@ html {
 
 body {
     /* Make the body a 80 character wide container */
-    width: 80ch;
+    max-width: 80ch;
     /* Center the container within the viewport */ 
     margin: 0 auto;
     /* Give the lines an adequate amount of room to breathe. */
