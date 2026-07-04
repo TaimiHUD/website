@@ -13,12 +13,15 @@ html {
 
   /* Each color is light-dark(light, dark). Light links are darkened
      relative to the accent family so they hold 4.5:1 contrast on the
-     light background (the shared cyan fails at 2.8:1). */
-  --bg: light-dark(#fcfcfc, #141414);
-  --fg: light-dark(#333, #ddd);
-  --heading: light-dark(#111, #eee);
-  --code-bg: light-dark(#eee, #282828);
-  --border: light-dark(#ddd, #2e2e2e);
+     light background (the shared cyan fails at 2.8:1). Dark text sits
+     near 11:1 rather than max white-on-black to avoid glare; borders
+     and code chips run ~1.5-2.6:1 so structure registers without
+     turning hairlines into stripes. */
+  --bg: light-dark(#fcfcfc, #17181b);
+  --fg: light-dark(#333, #c9cbcd);
+  --heading: light-dark(#111, #e4e6e8);
+  --code-bg: light-dark(#dcdfe4, #33363c);
+  --border: light-dark(#9aa0a8, #53575d);
   --accent: light-dark(#0d7680, #16b1bd);
   --link: light-dark(#0d7680, #16b1bd);
   --link-hover: light-dark(#0a5a62, #37dce8);
