@@ -2,6 +2,8 @@
 title = "Documentation"
 template = "page.html"
 date = 2026-02-06
+[extra]
+header2 = true
 +++
 
 ## Using TaimiHUD
