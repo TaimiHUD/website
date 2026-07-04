@@ -281,21 +281,26 @@ a:visited {
   color: var(--link-visited);
 }
 
+/* Prose links inherit the text color; the underline alone marks them.
+   The accent only appears on hover. */
+main a, main a:link, main a:visited {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 
 .netscape-container img {
   width: 88px;
   height: 31px;
 }
 
-a:hover {
-  text-decoration: none;
+a:hover, main a:hover {
   color: var(--link-hover);
-  border-bottom: 0.01rem var(--link-hover) solid;
 }
 
-a:hover:has(img) {
-  /* Suppress the text-link underline; images signal clickability on their own */
-  border: none;
+footer a:hover {
+  text-decoration: underline;
 }
 
 
