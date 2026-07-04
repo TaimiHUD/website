@@ -103,6 +103,19 @@ header nav, footer {
     h2, h3 {
       position: sticky;
       background: var(--bg);
+      /* Content fades as it slides under the stuck heading. Kept smaller
+         than the heading's bottom margin (0.5em), the strip covers only
+         whitespace while the heading is in normal flow. */
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 0.45em;
+        background: linear-gradient(to bottom, var(--bg), transparent);
+        pointer-events: none;
+      }
     }
     h2 {
       top: 3rem;
@@ -214,6 +227,17 @@ header {
   top: 0;
   z-index: 10;
   background: var(--bg);
+  /* Content fades as it slides under, matching the sticky headings */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: linear-gradient(to bottom, var(--bg), transparent);
+    pointer-events: none;
+  }
 }
 
 header nav {
