@@ -292,6 +292,10 @@ footer nav ul {
         &:nth-child(2n) {
             text-align: right;
         }
+        /* Breathing room between grouped links */
+        a + a {
+            margin-left: 0.75em;
+        }
     }
     /* Brand icons drawn from static SVGs, tinted via mask so they follow link colors */
     a[class^="icon-"]::before {
