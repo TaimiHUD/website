@@ -153,6 +153,8 @@ tbody tr {
 img {
     /* Make sure that the images do not overflow the body */
     max-width: 100%;
+    /* Keep the aspect ratio when width/height attributes are scaled down */
+    height: auto;
     /* Make sure that the images are not too tall as to be annoying */
     max-height: 50ch;
 }
