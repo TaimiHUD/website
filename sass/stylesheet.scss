@@ -57,8 +57,10 @@ body {
     font-size: 1.25rem;
     /* Give the lines an adequate amount of room to breathe. */
     line-height: 1.6;
-    /* Make sure the edge of the body has a gap for mobile */
-    padding: 1em;
+    /* Make sure the edge of the body has a gap for mobile - but not on
+       top: the sticky header pins flush to the viewport when scrolled,
+       so resting flush too keeps its position constant */
+    padding: 0 1em 1em;
 }
 
 h1, h2, h3, h4 {
