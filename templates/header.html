@@ -5,6 +5,9 @@
 {% endif %}
 {% set path = current_path | default(value="") %}
 <nav>
+  {% if header_prenav_logo is not defined %}
+    <a class="brand" href="/"><img src="/icon-glow-128.png" alt="" width="128" height="128"> {{ config.extra.site_title }}</a>
+  {% endif %}
   <ul>
     <li><a href="/" {% if path == "/" %}aria-current="page"{% endif %}>Home</a></li>
     <li><a href="/install-guide/" {% if path is starting_with("/install-guide") %}aria-current="page"{% endif %}>Install</a></li>
@@ -12,5 +15,6 @@
     <!--<li><a href="/blog">Blog</a></li>-->
     <li><a href="/docs/" {% if path is starting_with("/docs") %}aria-current="page"{% endif %}>Docs</a></li>
   </ul>
+  {% include "colorscheme.html" %}
 </nav>
 <hr>
