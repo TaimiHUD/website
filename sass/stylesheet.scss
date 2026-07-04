@@ -89,14 +89,14 @@ header nav, footer {
 }
 
 /* Section headings stick under the nav and stack by hierarchy: h2
-   pins below the nav, h3 below the stuck h2, h4 below that. Later
-   headings of the same level paint over the previous one (DOM order),
-   so each level always shows the section you're actually in. Only on
-   wider screens - phones can't spare the rows, and the offsets assume
-   the nav's fixed height. */
+   pins below the nav, h3 below the stuck h2. Later headings of the
+   same level paint over the previous one (DOM order), so each level
+   always shows the section you're actually in. Only on wider screens -
+   phones can't spare the rows, and the offsets assume the nav's fixed
+   height. */
 @media (min-width: 600px) {
   /* Offsets: nav 3rem; a single-line h2 is ~2rem tall (1.35em of the
-     1.25rem body at line-height 1.2); a single-line h3 is ~1.65rem. */
+     1.25rem body at line-height 1.2). */
   main {
     h2, h3, h4 {
       position: sticky;
@@ -208,18 +208,23 @@ figure.hero img {
   width: 100%;
 }
 
+/* Ride along while scrolling. Sticky only works within the parent, so it
+   must sit on <header> (whose parent spans the page), not on the nav - the
+   header is exactly nav-sized and gives it no room to stick in. */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+}
+
 header nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5em 1.25em;
   padding: 0.25em 0;
-  /* Ride along while scrolling; the accent rule is the nav's own border
-     (the old <hr>) so it travels too. Needs an opaque background. */
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--bg);
+  /* The accent rule is the nav's own border (the old <hr>) so it travels too */
   border-bottom: 1px solid var(--accent);
   /* A fixed height on wider screens gives the sticky headings below a
      reliable offset to stack under */
