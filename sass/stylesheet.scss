@@ -61,12 +61,23 @@ html {
 body {
     /* Make the body a 80 character wide container */
     max-width: 80ch;
-    /* Center the container within the viewport */ 
+    /* Center the container within the viewport */
     margin: 0 auto;
     /* Give the lines an adequate amount of room to breathe. */
-    line-height: 1.4;
+    line-height: 1.6;
     /* Make sure the edge of the body has a gap for mobile */
     padding: 1em;
+}
+
+h1, h2, h3, h4 {
+  /* Wrapped headings shouldn't gape like body text does */
+  line-height: 1.2;
+  /* More space above than below binds a heading to its own section */
+  margin-block: 1.5em 0.5em;
+}
+
+h1 {
+  margin-block-start: 0.5em;
 }
 
 /* A kindness to those of you who don't use Javascript */
