@@ -88,6 +88,35 @@ header nav, footer {
   font-size: 1rem;
 }
 
+/* Section headings stick under the nav and stack by hierarchy: h2
+   pins below the nav, h3 below the stuck h2, h4 below that. Later
+   headings of the same level paint over the previous one (DOM order),
+   so each level always shows the section you're actually in. Only on
+   wider screens - phones can't spare the rows, and the offsets assume
+   the nav's fixed height. */
+@media (min-width: 600px) {
+  /* Offsets: nav 3rem; a single-line h2 is ~2rem tall (1.35em of the
+     1.25rem body at line-height 1.2); a single-line h3 is ~1.65rem. */
+  main {
+    h2, h3, h4 {
+      position: sticky;
+      background: var(--bg);
+    }
+    h2 {
+      top: 3rem;
+      z-index: 4;
+    }
+    h3 {
+      top: calc(3rem + 2rem);
+      z-index: 3;
+    }
+    h4 {
+      top: calc(3rem + 2rem + 1.65rem);
+      z-index: 2;
+    }
+  }
+}
+
 /* A kindness to those of you who don't use Javascript */
 .nonoscript {
   display: none;
