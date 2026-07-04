@@ -223,6 +223,27 @@ a:hover:has(img) {
 }
 
 
+/* The color scheme picker is a utility, not content - keep it quiet. */
+footer fieldset {
+  border: none;
+  padding: 0;
+  margin: 1em 0 0;
+  font-size: 0.85em;
+  opacity: 0.85;
+  legend {
+    float: left;
+    padding: 0;
+    margin-right: 0.75em;
+  }
+}
+
+/* The logotype shouldn't eat half of a phone's first screen. */
+@media (max-width: 600px) {
+  header img.logo {
+    max-height: 8rem;
+  }
+}
+
 /* We want the footer to be like two columns, where the right columns are also right-aligned and the columns grow to share the space sanely. */
 
 footer nav ul {
