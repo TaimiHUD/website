@@ -289,6 +289,21 @@ footer nav ul {
             text-align: right;
         }
     }
+    /* Brand icons drawn from static SVGs, tinted via mask so they follow link colors */
+    a[class^="icon-"]::before {
+        content: "";
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.4em;
+        vertical-align: -0.15em;
+        background-color: currentColor;
+        mask: var(--icon) no-repeat center / contain;
+    }
+    .icon-github { --icon: url("/icons/github.svg"); }
+    .icon-codeberg { --icon: url("/icons/codeberg.svg"); }
+    .icon-discord { --icon: url("/icons/discord.svg"); }
+    .icon-liberachat { --icon: url("/icons/liberachat.svg"); }
 }
 
 @media (prefers-color-scheme: dark) {
