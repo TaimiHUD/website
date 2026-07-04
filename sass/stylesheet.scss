@@ -39,8 +39,12 @@ html {
   @include scheme-dark;
   color: var(--fg);
   background: var(--bg);
+  font-family: system-ui, sans-serif;
   h1, h2, h3 {
     color: var(--heading);
+  }
+  code, pre, kbd, samp {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
   }
   code {
     background: var(--code-bg);
