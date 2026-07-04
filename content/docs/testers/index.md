@@ -22,6 +22,8 @@ A preview of new Goggles v2 features and improvements is also now available:
 * [UI masking](/gallery/dev-goggles03.webp)
 * ["Projection"](/gallery/dev-goggles05.jpg) and [reflections](/gallery/dev-goggles04.webp)
 
+Latest working branch: `arc/plug`
+
 ## Beta Test {#beta}
 
 None currently active.
