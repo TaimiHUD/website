@@ -96,7 +96,10 @@ h1 {
       column-count: 1;
     }
     li {
-      img {
+      /* Keep a figure and its caption together within a column */
+      break-inside: avoid;
+      figure {
+        margin: 0 0 1em;
       }
     }
   }
