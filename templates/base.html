@@ -39,6 +39,41 @@
         {% include "footer.html" %}
       </footer>
     </div>
+    <!-- Wrap each h2/h3 and its following content in a <section> so sticky
+         headings stick only within their own section: the next section
+         pushes the previous one (and any stuck subheading) out of the way.
+         The .sectioned class gates the sticky CSS, so no JS means no
+         sticky headings rather than broken ones. -->
+    <script>
+      (function () {
+        var main = document.querySelector("main");
+        if (!main) return;
+        var nodes = Array.prototype.slice.call(main.childNodes);
+        var frag = document.createDocumentFragment();
+        var h2sec = null, h3sec = null;
+        nodes.forEach(function (node) {
+          var tag = node.tagName;
+          if (tag === "H2") {
+            h3sec = null;
+            h2sec = document.createElement("section");
+            frag.appendChild(h2sec);
+            h2sec.appendChild(node);
+          } else if (tag === "H3" && h2sec) {
+            h3sec = document.createElement("section");
+            h2sec.appendChild(h3sec);
+            h3sec.appendChild(node);
+          } else if (h3sec) {
+            h3sec.appendChild(node);
+          } else if (h2sec) {
+            h2sec.appendChild(node);
+          } else {
+            frag.appendChild(node);
+          }
+        });
+        main.appendChild(frag);
+        document.documentElement.classList.add("sectioned");
+      })();
+    </script>
     {% include "nonoscript.html" %}
   </body>
 
