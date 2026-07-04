@@ -3,17 +3,14 @@
     <a href="/#taimi"><img class="logo" src="/logotype-holo.png" alt="{{ config.extra.site_title }}"></img></a>
   </h1>
 {% endif %}
+{% set path = current_path | default(value="") %}
 <nav>
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/install-guide/">Install</a></li>
-    <li><a href="/faq/">FAQ</a></li>
-    <li><a href="ircs://irc.libera.chat/#TaimiHUD">IRC</a></li>
-    <li><a href="https://discord.gg/ZBQJdEDFBS">Discord</a></li>
+    <li><a href="/" {% if path == "/" %}aria-current="page"{% endif %}>Home</a></li>
+    <li><a href="/install-guide/" {% if path is starting_with("/install-guide") %}aria-current="page"{% endif %}>Install</a></li>
+    <li><a href="/faq/" {% if path is starting_with("/faq") %}aria-current="page"{% endif %}>FAQ</a></li>
     <!--<li><a href="/blog">Blog</a></li>-->
-    <li><a href="https://codeberg.org/TaimiHUD/TaimiHUD">Source</a></li>
-    <li><a href="https://github.com/TaimiHUD/TaimiHUD">GitHub</a></li>
-    <li><a href="/docs/">Docs</a></li>
+    <li><a href="/docs/" {% if path is starting_with("/docs") %}aria-current="page"{% endif %}>Docs</a></li>
   </ul>
 </nav>
 <hr>

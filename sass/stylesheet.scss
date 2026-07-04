@@ -168,6 +168,10 @@ header nav ul {
     flex-grow: 1;
     text-align: center;
   }
+  a[aria-current="page"] {
+    color: var(--heading);
+    border-bottom: 2px solid var(--accent);
+  }
 }
 
 ul.two {
