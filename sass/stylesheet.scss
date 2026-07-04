@@ -154,6 +154,18 @@ img {
     max-height: 50ch;
 }
 
+figure {
+  margin: 1.5em 0;
+  figcaption {
+    font-size: 0.85em;
+    opacity: 0.75;
+  }
+}
+
+figure.hero img {
+  width: 100%;
+}
+
 header nav ul {
   list-style-type: none;
   margin: 0;
