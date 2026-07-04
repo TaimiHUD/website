@@ -259,7 +259,7 @@ or placeholder values if a request couldn't be processed.
   * ☐ setters: TODO (")
     * ☑ `:SetTexture(path)`
     * ☒ `:SetTexture(web_id)`: TODO
-  * ☐ `Pack:CreateTrail`: TODO
+  * ☑ `Pack:CreateTrail`: might work now?
   * ☐ `I:Trail`: TODO
   * ☒ `:SetPoints`: TODO
 * ☐ `IBehavior`: semi-functional
@@ -297,7 +297,7 @@ misc things to double-check:
 * will `World` expose markers for all maps or only the current map? if only current map, what about `Category:GetMarkers()`?
   * how persistent are changes to properties on markers for a map other than the one you currently are on?
 * how persistent are changes to category properties?
-* does changing maps wipe state and/or re-start pack.lua every time? if so, what about loading screens / waypoints?
+* does changing maps wipe state and/or re-start pack.lua every time? if so, what about loading screens / waypoints? what about switching characters but reload onto the same map?
   (and if not, why aren't there map lifecycle events?)
 * precise behaviour of `script-filter` isn't clear...
   * documentation says nothing about returning true/false to show or hide the marker, but the name implies it so... `return true` appears to mean it should filter or hide the marker?
@@ -309,6 +309,8 @@ misc things to double-check:
   after a marker is triggered (auto or manual), does it remain in focus?
   if `BehaviorFiltered` does it stay focused or unfocus upon filtering? can a filtered marker still become focused when you approach it?
 * tehstrails follows `CreateMarker({ copy = "" })` up with `m:GetBehavior("CopyModifier").CopyValue = next`, is clearing the clipboard the first time you interact the intended behaviour? (our GetBehavior would return nil otherwise so I assume it's semi intentional though maybe a hack?)
+* how does `table.ToLson` handle functions, userdata, etc - error or ignore or what? also is a `__tolson` metamethod a thing?
+* if a marker is created under a category, can it inherit attrs from that `type` the same way it would've if created by xml?
 
 #### References {#script-references}
 
@@ -363,7 +365,7 @@ Some misc runtime characteristics to expect:
 * currently targets lua 5.1 ([luajit 2.1 backend](https://luajit.org/extensions.html), pluggable at build-time)
   * ☐ `bit32`: TODO?
 * a number of standard library functions may be exposed as partial shims:
-  * ☑ `print` as an alias to `Debug:Print`: TODO
+  * ☑ `print` as an alias to `Debug:Print`
   * ☑ `require`: partly provided
   * ☐ `os.clock`
   * ☐ `os.date`
