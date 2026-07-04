@@ -304,9 +304,15 @@ footer a:hover {
 }
 
 
+/* The homepage logotype lives in the content flow */
+.site-logo {
+  text-align: center;
+  margin-block: 0;
+}
+
 /* The logotype shouldn't eat half of a phone's first screen. */
 @media (max-width: 600px) {
-  header img.logo {
+  .site-logo img {
     max-height: 8rem;
   }
 }

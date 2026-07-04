@@ -1,13 +1,6 @@
-{% if header_prenav_logo is defined %}
-  <h1>
-    <a href="/#taimi"><img class="logo" src="/logotype-holo.png" alt="{{ config.extra.site_title }}"></img></a>
-  </h1>
-{% endif %}
 {% set path = current_path | default(value="") %}
 <nav>
-  {% if header_prenav_logo is not defined %}
-    <a class="brand" href="/"><img src="/icon-glow-128.png" alt="" width="128" height="128"> {{ config.extra.site_title }}</a>
-  {% endif %}
+  <a class="brand" href="/"><img src="/icon-glow-128.png" alt="" width="128" height="128"> {{ config.extra.site_title }}</a>
   <ul>
     <li><a href="/" {% if path == "/" %}aria-current="page"{% endif %}>Home</a></li>
     <li><a href="/install-guide/" {% if path is starting_with("/install-guide") %}aria-current="page"{% endif %}>Install</a></li>

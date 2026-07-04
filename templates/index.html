@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
-{% block prenav %}
-{% set header_prenav_logo = true %}
-{% endblock prenav %}
 {% block content %}
+<h1 class="site-logo"><img class="logo" src="/logotype-holo.png" alt="{{ config.extra.site_title }}"></h1>
+
 <p id="tagline"><a id="taimi" href="https://github.com/TaimiHUD/TaimiHUD">TaimiHUD</a> draws markers, trails, and timers right inside <a href="https://www.guildwars2.com/">Guild Wars 2</a> &mdash; no overlay window, on Linux as well as Windows.</p>
 <p>Already running <a href="https://raidcore.gg/Nexus">Nexus</a>? TaimiHUD is in its addon library. New to addons? The <a href="/install-guide/">install guide</a> walks you through the whole setup.</p>
 
