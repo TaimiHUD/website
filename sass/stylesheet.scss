@@ -2,42 +2,28 @@
   Made with love by @kittywitch ^_^
 */
 
-/* The dark scheme is the site's home theme: the holo logo glows on it. */
-@mixin scheme-dark {
-  /* Native widgets (radios, buttons, scrollbars) follow the scheme too */
-  color-scheme: dark;
-  --bg: #141414;
-  --fg: #ddd;
-  --heading: #eee;
-  --code-bg: #282828;
-  --border: #2e2e2e;
-  --accent: #16b1bd;
-  --link: #16b1bd;
-  --link-hover: #37dce8;
-  --link-visited: #3784e8;
-}
-
-/* Light links are darkened relative to the accent family so they hold
-   4.5:1 contrast on the light background (the shared cyan fails at 2.8:1). */
-@mixin scheme-light {
-  color-scheme: light;
-  --bg: #fcfcfc;
-  --fg: #333;
-  --heading: #111;
-  --code-bg: #eee;
-  --border: #ddd;
-  --accent: #0d7680;
-  --link: #0d7680;
-  --link-hover: #0a5a62;
-  --link-visited: #2456ad;
-}
-
 * {
   box-sizing: border-box;
 }
 
 html {
-  @include scheme-dark;
+  /* Follow the system scheme by default; native widgets (radios,
+     buttons, scrollbars) follow along. The picker below pins it. */
+  color-scheme: light dark;
+
+  /* Each color is light-dark(light, dark). Light links are darkened
+     relative to the accent family so they hold 4.5:1 contrast on the
+     light background (the shared cyan fails at 2.8:1). */
+  --bg: light-dark(#fcfcfc, #141414);
+  --fg: light-dark(#333, #ddd);
+  --heading: light-dark(#111, #eee);
+  --code-bg: light-dark(#eee, #282828);
+  --border: light-dark(#ddd, #2e2e2e);
+  --accent: light-dark(#0d7680, #16b1bd);
+  --link: light-dark(#0d7680, #16b1bd);
+  --link-hover: light-dark(#0a5a62, #37dce8);
+  --link-visited: light-dark(#2456ad, #3784e8);
+
   color: var(--fg);
   background: var(--bg);
   font-family: system-ui, sans-serif;
@@ -306,23 +292,11 @@ footer nav ul {
     .icon-liberachat { --icon: url("/icons/liberachat.svg"); }
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    @include scheme-dark;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  html {
-    @include scheme-light;
-  }
-}
-
-/* Explicit user choice beats the system preference (higher specificity). */
+/* Explicit user choice pins the scheme; every light-dark() above follows. */
 html:has(#color-scheme-dark:checked) {
-  @include scheme-dark;
+  color-scheme: dark;
 }
 
 html:has(#color-scheme-light:checked) {
-  @include scheme-light;
+  color-scheme: light;
 }
