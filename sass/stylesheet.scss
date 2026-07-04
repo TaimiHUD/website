@@ -102,10 +102,49 @@ h1 {
   }
 }
 
+/* The cyan of the holo logo marks the page's skeleton: rules, section
+   ticks, table heads, quotes, focus - structure, never running text. */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--accent);
+}
+
+h2 {
+  border-left: 0.25rem solid var(--accent);
+  padding-left: 0.5rem;
+}
+
+blockquote {
+  border-left: 0.25rem solid var(--accent);
+  margin-inline: 0;
+  padding-inline-start: 1em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 table {
     /* Wide tables (e.g. pathing status) scroll within themselves instead of overflowing the page on narrow screens */
     display: block;
     overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.35em 0.75em;
+}
+
+thead tr {
+    border-bottom: 2px solid var(--accent);
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border);
 }
 
 img {
