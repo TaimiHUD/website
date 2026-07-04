@@ -2,32 +2,50 @@
   Made with love by @kittywitch ^_^
 */
 
-$light-bg: #fcfcfc;
-$light-fg: #333;
-$light-code: #eee;
-$light-heading: #111;
-$dark-bg: #141414;
-$dark-fg: #ddd;
-$dark-code: #282828;
-$dark-heading: #eee;
-$link-base: #16b1bd;
-$link-hover: #37DCE8;
-$link-visited: #3784e8;
+/* The dark scheme is the site's home theme: the holo logo glows on it. */
+@mixin scheme-dark {
+  --bg: #141414;
+  --fg: #ddd;
+  --heading: #eee;
+  --code-bg: #282828;
+  --code-border: #ddd;
+  --border: #2e2e2e;
+  --accent: #16b1bd;
+  --link: #16b1bd;
+  --link-hover: #37dce8;
+  --link-visited: #3784e8;
+}
+
+/* Light links are darkened relative to the accent family so they hold
+   4.5:1 contrast on the light background (the shared cyan fails at 2.8:1). */
+@mixin scheme-light {
+  --bg: #fcfcfc;
+  --fg: #333;
+  --heading: #111;
+  --code-bg: #eee;
+  --code-border: #333;
+  --border: #ddd;
+  --accent: #0d7680;
+  --link: #0d7680;
+  --link-hover: #0a5a62;
+  --link-visited: #2456ad;
+}
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  color: $dark-fg;
-  background: $dark-bg;
+  @include scheme-dark;
+  color: var(--fg);
+  background: var(--bg);
   h1, h2, h3 {
-    color: $dark-heading;
+    color: var(--heading);
   }
   code {
-    background: $dark-code;
+    background: var(--code-bg);
     padding: .5pt 5pt;
-    border: $dark-fg 2px solid;
+    border: var(--code-border) 2px solid;
   }
   code:has(pre) {
     display: block;
@@ -104,12 +122,12 @@ ul.two {
 
 a, a:link {
   text-decoration: none;
-  color: $link-base;
+  color: var(--link);
 }
 
 a:visited {
   text-decoration: none;
-  color: $link-visited;
+  color: var(--link-visited);
 }
 
 .netscape-container img {
@@ -119,15 +137,15 @@ a:visited {
 
 a:hover {
   text-decoration: none;
-  color: $link-hover;
-  border-bottom: 0.01rem $link-hover solid;
+  color: var(--link-hover);
+  border-bottom: 0.01rem var(--link-hover) solid;
 }
 
 a:hover:has(img) {
   border: none;
   padding: 0.02rem;
   img {
-    border: 0.01rem $link-hover solid;
+    border: 0.01rem var(--link-hover) solid;
   }
 }
 
@@ -151,52 +169,21 @@ footer nav ul {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color: $dark-fg;
-    background: $dark-bg;
-    h1, h2, h3 {
-      color: $dark-heading;
-    }
-    code {
-      background: $dark-code;
-      border: $dark-fg 2px solid;
-    }
+    @include scheme-dark;
   }
 }
 
 @media (prefers-color-scheme: light) {
   html {
-    color: $light-fg;
-    background: $light-bg;
-    h1, h2, h3 {
-      color: $light-heading;
-    }
-    code {
-      background: $light-code;
-      border: $light-fg 2px solid;
-    }
+    @include scheme-light;
   }
 }
 
+/* Explicit user choice beats the system preference (higher specificity). */
 html:has(#color-scheme-dark:checked) {
-  color: $dark-fg;
-  background: $dark-bg;
-  h1, h2, h3 {
-    color: $dark-heading;
-  }
-  code {
-    background: $dark-code;
-    border: $dark-fg 2px solid;
-  }
+  @include scheme-dark;
 }
 
 html:has(#color-scheme-light:checked) {
-  color: $light-fg;
-  background: $light-bg;
-  h1, h2, h3 {
-    color: $light-heading;
-  }
-  code {
-    background: $light-code;
-    border: $light-fg 2px solid;
-  }
+  @include scheme-light;
 }
