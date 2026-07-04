@@ -2,73 +2,54 @@
 
 <!--
   Motivation:
-    * Allow for auto-detection via prefers-color-scheme
+    * Allow for auto-detection via prefers-color-scheme (color-scheme: light dark)
     * Allow for providing a color scheme by user preference anyway
     * Fail (relatively) quietly without Javascript
 
-  Other parts of the implementation:
-  ```scss
-    /* Ideally, you use CSS/SCSS variables for colouring here */
-    html {
-      /* Choose one to default to; light or dark and implement it here */
-    }
-    @media (prefers-color-scheme: dark) {
-      html {
-        /* Implement dark with color, background, maybe a separate thing for headings if you feel spicy */
-      }
-    }
-    @media (prefers-color-scheme: light) {
-      html {
-        /* Implement light with color, background, maybe a separate thing for headings if you feel spicy */
-      }
-    }
-    html:has(#color-scheme-dark:checked) {
-      /* Implement dark with color, background, maybe a separate thing for headings if you feel spicy */
-    }
-    html:has(#color-scheme-light:checked) {
-      /* Implement light with color, background, maybe a separate thing for headings if you feel spicy */
-    }
-  ```
+  How it works:
+    * The hidden radios are the CSS mechanism: html:has(#color-scheme-*:checked)
+      pins the color-scheme property, and every light-dark() value follows.
+    * The button cycles auto -> light -> dark and shows an icon for the
+      CURRENT state; which icon is visible is also driven by :has().
+    * Javascript only persists the choice (localStorage) and advances the
+      cycle; without it the component stays hidden and the system scheme rules.
 -->
 
-<fieldset class="nonoscript">
-  <legend>Site color scheme</legend>
-
-  <input name="color-scheme" type="radio" id="color-scheme-dark" value="dark">
-  <label for="color-scheme-dark">Dark</label>
-  <input name="color-scheme" type="radio" id="color-scheme-light" value="light">
-  <label for="color-scheme-light">Light</label>
+<div class="color-scheme nonoscript">
+  <input name="color-scheme" type="radio" id="color-scheme-dark" value="dark" hidden>
+  <input name="color-scheme" type="radio" id="color-scheme-light" value="light" hidden>
   <button
-    id="clear-color-scheme"
+    id="color-scheme-cycle"
     type="button"
-    title="Clear the saved preference and follow the color scheme provided by the system and browser."
+    aria-label="Color scheme: cycles between auto, light, and dark"
+    title="Color scheme: auto &rarr; light &rarr; dark"
   >
-    Auto
+    <span class="scheme-icon scheme-icon-auto" aria-hidden="true"></span>
+    <span class="scheme-icon scheme-icon-light" aria-hidden="true"></span>
+    <span class="scheme-icon scheme-icon-dark" aria-hidden="true"></span>
   </button>
-</fieldset>
-
-<noscript>Persistence of user-selected color scheme is not possible without Javascript, however automatic detection from CSS will still work.</noscript>
+</div>
 
 <script>
-  var radios = document.getElementsByName("color-scheme");
-  var prev = localStorage.getItem("color-scheme");
-  for (var i = 0; i < radios.length; i++) {
-    var _this = radios[i];
-    _this.checked = _this.value == prev;
-    radios[i].addEventListener("change", function() {
-      if (this.value !== prev) {
-        prev = this.value;
-        localStorage.setItem("color-scheme", this.value);
+  (function() {
+    var dark = document.getElementById("color-scheme-dark");
+    var light = document.getElementById("color-scheme-light");
+    var saved = localStorage.getItem("color-scheme");
+    dark.checked = saved === "dark";
+    light.checked = saved === "light";
+    document.getElementById("color-scheme-cycle").addEventListener("click", function() {
+      if (dark.checked) {
+        dark.checked = false;
+        localStorage.removeItem("color-scheme");
+      } else if (light.checked) {
+        light.checked = false;
+        dark.checked = true;
+        localStorage.setItem("color-scheme", "dark");
+      } else {
+        light.checked = true;
+        localStorage.setItem("color-scheme", "light");
       }
     });
-  }
-  var button = document.getElementById("clear-color-scheme");
-  button.addEventListener("click", function() {
-    for (var i = 0; i < radios.length; i++) {
-      var _this = radios[i];
-      _this.checked = false;
-      localStorage.removeItem("color-scheme");
-    }
-  });
+  })();
 </script>
 <!-- End of component for color scheme selection -->
