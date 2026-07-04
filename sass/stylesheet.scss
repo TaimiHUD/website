@@ -197,6 +197,11 @@ header nav {
       padding: 0.25em 0.75em;
       border-radius: 0.25em;
     }
+    /* A soft tint instead of the text-link underline; less twitchy on a row of items */
+    a:hover {
+      border-bottom: none;
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+    }
     a[aria-current="page"] {
       color: var(--heading);
       border-bottom: 2px solid var(--accent);
