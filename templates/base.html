@@ -6,22 +6,22 @@
 
   <head>
     <meta charset="utf-8">
-    <title>
-      {% if section is defined and section.title is defined and section.title is string %}
-        {{ section.title }} -
-        {% elif page is defined and page.title is defined and page.title is string %}
-        {{ page.title }} -
-      {% endif %}
-      {{ config.extra.site_title }}
-    </title>
-    <meta property="og:title" content="
-      {% if section is defined and section.title is defined and section.title is string %}
-        {{ section.title }} -
-        {% elif page is defined and page.title is defined and page.title is string %}
-        {{ page.title }} -
-      {% endif %}
-      {{ config.extra.site_title }}
-    " />
+    {% if section is defined and section.title is defined and section.title is string %}
+      {% set title = section.title ~ " - " ~ config.extra.site_title %}
+    {% elif page is defined and page.title is defined and page.title is string %}
+      {% set title = page.title ~ " - " ~ config.extra.site_title %}
+    {% else %}
+      {% set title = config.extra.site_title %}
+    {% endif %}
+    {% if page is defined and page.description %}
+      {% set description = page.description %}
+    {% else %}
+      {% set description = config.extra.site_description %}
+    {% endif %}
+    <title>{{ title }}</title>
+    <meta property="og:title" content="{{ title }}" />
+    <meta name="description" content="{{ description }}" />
+    <meta property="og:description" content="{{ description }}" />
     {% include "head.html" %}
   </head>
 

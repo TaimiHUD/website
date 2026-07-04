@@ -15,3 +15,4 @@ build_search_index = true
 [extra]
 # Put all your custom variables here
 site_title = "TaimiHUD"
+site_description = "An open-source Nexus and ArcDPS addon for Guild Wars 2 written in Rust, bringing markers, trails, and timers cross-platform to Linux and Windows."
