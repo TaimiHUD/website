@@ -26,7 +26,8 @@ html {
 
   color: var(--fg);
   background: var(--bg);
-  font-family: system-ui, sans-serif;
+  /* Serif for reading, chosen on purpose this time; UI elements opt back into sans below */
+  font-family: Georgia, serif;
   h1, h2, h3 {
     color: var(--heading);
   }
@@ -37,6 +38,8 @@ html {
     background: var(--code-bg);
     padding: 0.1em 0.4em;
     border-radius: 0.25em;
+    /* Mono runs wide next to the serif; pull it back toward the x-height */
+    font-size: 0.85em;
   }
   code:has(pre) {
     display: block;
@@ -50,6 +53,8 @@ body {
     max-width: 80ch;
     /* Center the container within the viewport */
     margin: 0 auto;
+    /* Generous reading size; the serif carries it comfortably */
+    font-size: 1.25rem;
     /* Give the lines an adequate amount of room to breathe. */
     line-height: 1.6;
     /* Make sure the edge of the body has a gap for mobile */
@@ -63,8 +68,24 @@ h1, h2, h3, h4 {
   margin-block: 1.5em 0.5em;
 }
 
+/* A flat scale (headings only modestly larger than body) keeps pages calm */
 h1 {
+  font-size: 1.65em;
   margin-block-start: 0.5em;
+}
+
+h2 {
+  font-size: 1.35em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+/* Navigation and utility chrome read as UI, not prose */
+header nav, footer {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
 }
 
 /* A kindness to those of you who don't use Javascript */
@@ -249,6 +270,7 @@ ul.two {
   column-count: 2;
 }
 
+/* UI links (nav, footer) are accent-colored and undecorated */
 a, a:link {
   text-decoration: none;
   color: var(--link);
@@ -258,6 +280,7 @@ a:visited {
   text-decoration: none;
   color: var(--link-visited);
 }
+
 
 .netscape-container img {
   width: 88px;
