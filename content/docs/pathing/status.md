@@ -51,15 +51,15 @@ sometimes similar functionality can be tweaked globally by user settings.
 | Attribute        | Supported | Compatibility notes
 | ---------------- | --------- | ----
 | `color`            | ☑ | POIs
-| 〃                   | ☐ | trails could not be recoloured until v0.4 (might backport to v0.3.2)
+| `color`            | ☐ | trails could not be recoloured until v0.4 (might backport to v0.3.2)
 | `alpha`            | ☑ | POIs
-| 〃                   | ☒ | trails ignore it atm
+| `alpha`            | ☒ | trails ignore it atm
 | `cull`             | ☒ | ignored
-| `canfade`          | ☒ | 〃
-| `fadenear`         | ☒ | 〃
-| `fadefar`          | ☒ | 〃
+| `canfade`          | ☒ | ignored
+| `fadenear`         | ☒ | ignored
+| `fadefar`          | ☒ | ignored
 | `animspeed`        | ☒ | ignored
-| `bounce`           | ☒ | 〃
+| `bounce`           | ☒ | ignored
 | `heightoffset`     | ☑ | &nbsp;
 | `iconfile`         | ☑ | &nbsp;
 | `iconsize`         | ☑ | &nbsp;
@@ -71,7 +71,7 @@ sometimes similar functionality can be tweaked globally by user settings.
 | `rotate-y`         | ☒ | &nbsp;
 | `rotate-z`         | ☒ | &nbsp;
 | `minsize`          | ☒ | ignored
-| `maxsize`          | ☒ | 〃
+| `maxsize`          | ☒ | ignored
 | `texture`          | ☑ | TODO: opaque fallback when not provided?
 | `traildata`        | ☑ | .trl version 0
 | `trailscale`       | ☑ | &nbsp;
@@ -95,8 +95,8 @@ alpha test and is planned to follow the API release.
 | `specialization`    | ☑ | upcoming in v0.5
 | `maptype`           | ❓ | techinically supported by v0.5 but seems pointless if mapid can't be omitted
 | `mount`             | ☑ | upcoming in v0.5
-| `profession`        | ☑ | 〃
-| `race`              | ☑ | 〃
+| `profession`        | ☑ | upcoming in v0.5
+| `race`              | ☑ | upcoming in v0.5
 
 ### Dynamic Interactions
 
@@ -107,24 +107,24 @@ See the [test details](/docs/testers/#alpha) for caveats.
 | -------------- | --------- | ----
 | `autotrigger`    | ☑ | upcoming in v0.5
 | `copy`           | ☑ | upcoming in v0.5
-| `copy-message`   | ☑ | 〃
+| `copy-message`   | ☑ | upcoming in v0.5
 | `info`           | ☐ | upcoming in v0.5
 | `inforange`      | ❓ | works but unclear how it should interact in relation or combination with `triggerrange`
 | `triggerrange`   | ☐ | upcoming in v0.5
-| `show`           | ☐ | 〃
-| `hide`           | ☐ | 〃
-| `toggle`         | ☐ | 〃
-| `togglecategory` | ☐ | 〃
-| `resetguid`      | ☐ | 〃
-| `behavior`       | ☐ | 〃
-| `invertbehavior` | ☐ | 〃
-| `guid`           | ☐ | 〃
-| `resetlength`    | ☑ | 〃
+| `show`           | ☐ | upcoming in v0.5
+| `hide`           | ☐ | upcoming in v0.5
+| `toggle`         | ☐ | upcoming in v0.5
+| `togglecategory` | ☐ | upcoming in v0.5
+| `resetguid`      | ☐ | upcoming in v0.5
+| `behavior`       | ☐ | upcoming in v0.5
+| `invertbehavior` | ☐ | upcoming in v0.5
+| `guid`           | ☐ | upcoming in v0.5
+| `resetlength`    | ☑ | upcoming in v0.5
 | `script-tick`    | ☒ | ignored
-| `script-focus`   | ☒ | 〃
-| `script-trigger` | ☒ | 〃
-| `script-filter`  | ☒ | 〃
-| `script-once`    | ☒ | 〃
+| `script-focus`   | ☒ | ignored
+| `script-trigger` | ☒ | ignored
+| `script-filter`  | ☒ | ignored
+| `script-once`    | ☒ | ignored
 
 ### Compatibility notes {#taco-compat}
 
