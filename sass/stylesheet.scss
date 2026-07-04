@@ -88,6 +88,27 @@ header nav, footer {
   font-size: 1rem;
 }
 
+/* Anchor jumps land clear of the sticky chrome instead of underneath
+   it. Each target's clearance matches what stacks above it: an h2 only
+   needs the nav, an h3 the nav plus its stuck h2, anything deeper the
+   full stack. On narrow screens nothing sticks but the (wrappable) nav,
+   so one generous value covers all targets. */
+main [id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 600px) {
+  main [id] {
+    scroll-margin-top: 7rem;
+  }
+  main h2[id] {
+    scroll-margin-top: 3.5rem;
+  }
+  main h3[id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
 /* Section headings stick under the nav and stack by hierarchy: h2
    pins below the nav, h3 below the stuck h2. A sticky element only
    sticks within its container, so this relies on the section wrappers
