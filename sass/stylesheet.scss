@@ -58,6 +58,10 @@ body {
     margin: 0;
     padding: 0;
     column-count: 2;
+    /* A single column keeps thumbnails legible on narrow screens */
+    @media (max-width: 600px) {
+      column-count: 1;
+    }
     li {
       img {
       }
