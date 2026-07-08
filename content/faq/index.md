@@ -2,7 +2,7 @@
 title = "Frequently Asked Questions"
 template = "page.html"
 date = 2026-02-06
-updated = 2026-04-23
+updated = 2026-07-08
 aliases = ["docs/faq"]
 [extra]
 header2 = true
@@ -39,10 +39,17 @@ Tracking: [festival auto-detection](https://github.com/TaimiHUD/TaimiHUD/issues/
 
 ### Waypoints won't copy automatically, and where are those popups that help you do hearts? {#interact}
 
-Interactive functionality is currently the focus of an [alpha test build](/docs/testers/#alpha),
+Interactive functionality is currently the focus of an [alpha test](/docs/testers/#alpha),
 join us if you can handle experimental builds!
 
 Tracking: [POI interactions](https://github.com/TaimiHUD/TaimiHUD/issues/4)
+
+### Trail highlighting on TehsTrails or some other pack leveraging Lua scripts is broken? {#scripts}
+
+Scripting features are currently available to test as part of the [alpha test](/docs/testers/#alpha),
+join us if you can handle experimental builds!
+
+Tracking: [Lua scripting engine](https://github.com/TaimiHUD/TaimiHUD/issues/33)
 
 ### Why does everything look glitched after turning on Goggles? {#goggles-glitched}
 
