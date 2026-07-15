@@ -189,7 +189,7 @@ or placeholder values if a request couldn't be processed.
     * ☑ `.MapScale`, `.IsMapOpen`
     * ☑ `.IsTextInputFocused`
     * ☐ `.UISize`: TODO
-  * ☐ `MumbleMapType`, `MumbleMountType`, `MumbleRaceType`, `MumbleUiSize`: TODO (assuming these are actual lua tables and not just for reference?)
+  * ☐ `MumbleMapType`, `MumbleMountType`, `MumbleRaceType`, `MumbleUiSize`: TODO? unclear if these are provided as actual lua tables or just for reference in docs
 * ☑ `Menu`
   * ☑ `Menu:Add`
   * ☑ `Menu:Remove`
@@ -214,7 +214,7 @@ or placeholder values if a request couldn't be processed.
   * ☑ `:ToBase64`
   * ☑ `I:Guid`
 * ☑ `Texture`
-  * ☐ `.Width`, `.Height`: TODO
+  * ☐ `.Width`, `.Height`: TODO? stubbed out because loading texture immediately would block execution
   * ☑ `I:Texture(Pack, path)`
   * ☒ `I:Texture(web_id)`: TODO
 * ☑ `World`
@@ -243,22 +243,24 @@ or placeholder values if a request couldn't be processed.
   * ☐ `:Unfocus`: TODO
   * ☐ `:Interact`: TODO
   * ☑ (Trail)`:Remove`, (Marker)`:Remove`
-  * ☐ (Trail)`:GetBehavior`, (Marker)`:GetBehavior`: semi-functional
-  * ☐ `.BehaviorFiltered`: TODO (requires 0.5)
+  * ☑ (Trail)`:GetBehavior`, (Marker)`:GetBehavior`: mostly functional, but filter status and operations are scoped to the marker and not the individual behaviour (meaning that if a marker has multiple behaviours attached, they will all claim to be the reason for filtering even if only 1 filter is responsible - and `GetBehavior("CopyModifier"):Trigger()` may trigger the whole marker and perform more actions than just the copy)
+  * ☑ `.BehaviorFiltered`: TODO
+  * ☒ `Behaviors[]`: TODO
   * ☑ `DistanceToPlayer`
+  * ☒ `DrawOrder`: TODO: unclear if this is an override or updated every frame or what? likely to stay unimplemented or stubbed out unless it turns out to be useful to someone and the behaviour is well-defined
 * ☑ `Marker`
   * ☐ getters: TODO (many implemented but not all, types/names may be incorrect, etc)
   * ☐ setters: TODO (")
     * ☑ `:SetPos`, `:SetRot`
     * ☑ `:SetTexture(path)`
-    * ☒ `:SetTexture(web_id)`: TODO
+    * ☑ `:SetTexture(web_id)`
   * ☑ `Pack:CreateMarker`
   * ☑ `I:Marker`
 * ☑ `Trail`: TODO
   * ☐ getters: TODO (many implemented but not all, types/names may be incorrect, etc)
   * ☐ setters: TODO (")
     * ☑ `:SetTexture(path)`
-    * ☒ `:SetTexture(web_id)`: TODO
+    * ☑ `:SetTexture(web_id)`
   * ☑ `Pack:CreateTrail`: might work now?
   * ☐ `I:Trail`: TODO
   * ☒ `:SetPoints`: TODO
@@ -286,6 +288,7 @@ TODO: check whether these were deprecated or if the reference is just out of dat
 misc things to double-check:
 
 * coordinate spaces: `CreateMarker({ ypos = Mumble.PlayerCharacter.Position.Z })` implies that Vector3 positions could be in the swizzled "blishspace"? unclear if `ypos` == `marker.Position.Y` or `Z` - and what about `marker:SetPosY()`? `trail:SetPoints()`? How about `marker.RotateXyz` and `marker:SetRotY()`?
+* how does a marker's Position field and `marker:SetPosY()` relate to the `heightoffset` attribute - included or excluded? Does `DistanceToPlayer` take the y offset into account or no? is the offset considered a superficial/visual modifier rather than something that adjusts anything meaningful about the position? (how about trigger ranges and focus etc?)
 * instance fields like those on Vector3 are generally writable, right?
 * are pathable attribute fields expected to work by reference, e.g. is `marker.Position.X = new_x` equivalent to `marker:SetPosX(new_x)`? if ineffective: is it an error to set, clobbered immediately, ignored and desync'd from real state, or what?
 * are integer to number coercions wanted and/or needed for setters and methods?
@@ -308,6 +311,7 @@ misc things to double-check:
 * how does focus behave when dealing with auto-trigger markers - are both engaged simultaneously?
   after a marker is triggered (auto or manual), does it remain in focus?
   if `BehaviorFiltered` does it stay focused or unfocus upon filtering? can a filtered marker still become focused when you approach it?
+* can a trail be focused or interacted via the api? presumably behaviours are able to filter trails, but dynamic capabilities seem unclear.
 * tehstrails follows `CreateMarker({ copy = "" })` up with `m:GetBehavior("CopyModifier").CopyValue = next`, is clearing the clipboard the first time you interact the intended behaviour? (our GetBehavior would return nil otherwise so I assume it's semi intentional though maybe a hack?)
 * how does `table.ToLson` handle functions, userdata, etc - error or ignore or what? also is a `__tolson` metamethod a thing?
 * if a marker is created under a category, can it inherit attrs from that `type` the same way it would've if created by xml?
@@ -341,6 +345,14 @@ misc things to double-check:
 * ☒ `Taimi.Menu.NexusRoot`: TODO
 * ☒ `Taimi.Menu.NexusQA`: TODO
 * ☐ `Taimi.Overlay.IsTextInputFocused`: TODO
+* ☒ `Taimi.Texture:HasMetadata`, `Taimi.Texture:LoadMetadata`: TODO delayed vs blocking image decode and processing
+* ☐ `I:NamedTextureV1(id)`: explicit form of overloaded `I:Texture(int)`
+* ☐ `I:NamedTextureV2(id)`: string ID variant from API version 2
+  * ☑ `I:NamedTexture(id)`: overloaded variant for V1 or V2 IDs
+  * ☒ `I:WebTexture(url)`: TODO?
+* ☒ `Taimi.Api2`: TODO
+* ☒ `Taimi.Http`: TODO
+* ☒ `Taimi.Imgui`: TODO
 <!--
 * ☐ `@taimi/menu`: TODO
   * ☑ `MenuItem`
